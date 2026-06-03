@@ -102,14 +102,6 @@ table 'Measures (2)'
 		formatString: 0
 		lineageTag: 4e40e482-1936-45f7-a991-1bbf809890ea
 
-	measure 'Total Clients' = ```
-			
-			DISTINCTCOUNT(client_master[client_id])
-			
-			```
-		formatString: 0
-		lineageTag: 428107fb-e8d1-4d40-a216-0efc58df8879
-
 	measure 'Active Clients' = ```
 			
 			CALCULATE(
@@ -762,6 +754,14 @@ table 'Measures (2)'
 			
 			SELECTEDVALUE(employee_master[employment_status])
 		lineageTag: d3a76284-f08d-4909-8620-e6f59d5665e6
+
+	measure 'Total Clients' = ```
+			
+			DISTINCTCOUNT(client_master[client_id])
+			
+			```
+		formatString: 0
+		lineageTag: ac755fa9-0b0c-428c-8758-c38b45912163
 
 	column Column1
 		dataType: string
