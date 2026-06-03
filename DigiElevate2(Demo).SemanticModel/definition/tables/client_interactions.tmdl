@@ -1,0 +1,138 @@
+table client_interactions
+	lineageTag: 17653a4f-227a-43af-b306-e5ca9684cb99
+
+	column interaction_id
+		dataType: string
+		lineageTag: 7451b375-71e5-439c-8e6c-89a5f1fc7732
+		summarizeBy: none
+		sourceColumn: interaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 2ded232a-eee9-4f4c-ad6f-f5dd263ccc81
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_name
+		dataType: string
+		lineageTag: a6c30674-1562-4e8e-91be-b9a927c26668
+		summarizeBy: none
+		sourceColumn: contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: 1af361b7-c40a-4236-83a3-ef1df078cb7c
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: e7b05b17-40e6-4eac-b8a9-0606c418e58e
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column interaction_type
+		dataType: string
+		lineageTag: a9bd39e8-e7ff-40d9-957d-c1067cd3bb1b
+		summarizeBy: none
+		sourceColumn: interaction_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column interaction_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ecaa4977-345b-43bd-980d-e099c43cb8af
+		summarizeBy: none
+		sourceColumn: interaction_date
+
+		variation Variation
+			isDefault
+			relationship: 058d6f12-2bfd-41d3-adb4-3fa5da9617e8
+			defaultHierarchy: LocalDateTable_acb01290-5094-4402-8677-8be30e45a42f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column interaction_duration_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: c8fbeb8f-91e5-4f8b-96a4-18a526c9b359
+		summarizeBy: sum
+		sourceColumn: interaction_duration_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column meeting_channel
+		dataType: string
+		lineageTag: 6e438edf-89fa-4053-9f1e-cc340cb10496
+		summarizeBy: none
+		sourceColumn: meeting_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column interaction_outcome
+		dataType: string
+		lineageTag: ae5d8e9a-a159-4307-865a-8cd1dc4adedb
+		summarizeBy: none
+		sourceColumn: interaction_outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column followup_required
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a9a6c16-b0c5-451e-9dbf-c538de6d0d40
+		summarizeBy: none
+		sourceColumn: followup_required
+
+		annotation SummarizationSetBy = Automatic
+
+	column next_followup_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 62e3881e-ec89-4eab-9747-2dc97528265d
+		summarizeBy: none
+		sourceColumn: next_followup_date
+
+		variation Variation
+			isDefault
+			relationship: aea34f4a-b435-4534-ae56-ce4fa34b7651
+			defaultHierarchy: LocalDateTable_c2eb209e-f6b3-44e6-b5db-bb990dddff8e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column response_time_hours
+		dataType: double
+		lineageTag: b8f1f7db-e35f-449a-a233-27ba014b0423
+		summarizeBy: sum
+		sourceColumn: response_time_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition client_interactions = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_interactions_Table = DigiElevate2_Schema{[Name="client_interactions",Kind="Table"]}[Data]
+				in
+				    client_interactions_Table
+

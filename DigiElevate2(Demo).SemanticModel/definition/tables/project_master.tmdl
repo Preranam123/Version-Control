@@ -1,0 +1,201 @@
+table project_master
+	lineageTag: f66c0db0-31af-4d9b-9fa1-ab393e35b689
+
+	column project_id
+		dataType: string
+		lineageTag: d551f653-2389-47b0-82bb-fc74a77a6110
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: ad590731-254a-4d51-a697-85341f30ba2a
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 8eb0aac4-b270-4309-9d76-b7c9b9b29a97
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: string
+		lineageTag: 0f59c611-c38f-47f3-ad4b-0f372297c785
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_id
+		dataType: string
+		lineageTag: 1c89b469-92e2-443f-a27c-545467c2b136
+		summarizeBy: none
+		sourceColumn: project_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_name
+		dataType: string
+		lineageTag: 39d36f1c-de2e-4f20-8951-065eb7f44fc3
+		summarizeBy: none
+		sourceColumn: project_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_type
+		dataType: string
+		lineageTag: 4f1664ab-d753-462b-96ec-988fd5e1cd9b
+		summarizeBy: none
+		sourceColumn: project_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_category
+		dataType: string
+		lineageTag: 73f72a4d-bb30-452c-b622-2e0922a8bc76
+		summarizeBy: none
+		sourceColumn: project_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_status
+		dataType: string
+		lineageTag: affd8279-bef8-4c2b-880f-4f1444ab47f4
+		summarizeBy: none
+		sourceColumn: project_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 873eafdd-dcc2-4ac6-be85-c26a44686b7e
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 61d8f0b7-d53e-4cf9-9928-0129907b309a
+		summarizeBy: none
+		sourceColumn: project_start_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column project_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 36db0ad7-1702-474c-a403-6f91ec410b78
+		summarizeBy: none
+		sourceColumn: project_end_date
+
+		variation Variation
+			isDefault
+			relationship: 1833c5c0-d185-4745-b8b6-a176338f8db3
+			defaultHierarchy: LocalDateTable_a9b68f44-f96f-4287-a525-0a5ffa9bcfb3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column budget
+		dataType: int64
+		formatString: 0
+		lineageTag: 7be9915b-388b-4f67-863f-69a84065042d
+		summarizeBy: sum
+		sourceColumn: budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: 86bf400b-7973-437d-9402-1abbe4cf2e41
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_generated
+		dataType: int64
+		formatString: 0
+		lineageTag: 89d3e281-2289-4ccf-a89e-f8e6ae6463da
+		summarizeBy: sum
+		sourceColumn: revenue_generated
+
+		annotation SummarizationSetBy = Automatic
+
+	column profit_margin
+		dataType: double
+		lineageTag: de28ffe6-4d54-4a8e-8666-988923fb3dbf
+		summarizeBy: sum
+		sourceColumn: profit_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column completion_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 06110a92-4eef-41af-b68a-9570e0ba3f14
+		summarizeBy: sum
+		sourceColumn: completion_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_health_score
+		dataType: int64
+		formatString: 0
+		lineageTag: c1d09732-7332-4a9a-a919-5b6a500072f2
+		summarizeBy: sum
+		sourceColumn: project_health_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_complexity
+		dataType: string
+		lineageTag: 299ea9e5-4425-4e15-90e5-27fe42701636
+		summarizeBy: none
+		sourceColumn: project_complexity
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_status
+		dataType: string
+		lineageTag: cad3f621-5f19-47c8-a485-1f70de5f2142
+		summarizeBy: none
+		sourceColumn: delivery_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ed3490a-c473-4dbf-b19a-1fa32d9f020c
+		summarizeBy: sum
+		sourceColumn: delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_master = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_master_Table = DigiElevate2_Schema{[Name="project_master",Kind="Table"]}[Data]
+				in
+				    project_master_Table
+

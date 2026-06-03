@@ -1,0 +1,83 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["client_contacts","client_contracts","client_health","client_history","client_interactions","client_master","client_revenue","client_satisfaction","employee_attrition_history","employee_leave_data","employee_master","employee_skills","invoice_master","payment_collection","profitability_analysis","project_history","project_master","project_milestones","project_performance","project_phases","project_risks","project_tasks","project_team_allocation","project_timesheets","revenue_forecast","revenue_master","Measures (2)"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table client_contacts
+ref table client_contracts
+ref table DateTableTemplate_7c5d655c-e1d9-411e-b361-c87e548899bc
+ref table LocalDateTable_83de5a73-4688-44be-a7a7-b4ab25cae35f
+ref table LocalDateTable_7b594904-d819-4e17-a3ec-0f2859fb9303
+ref table LocalDateTable_af73b791-1a9f-435f-bde4-56a9a4912364
+ref table LocalDateTable_5765393c-b8f6-474f-8b8c-4f3982e23cfc
+ref table LocalDateTable_f096a633-3156-4108-bf5d-8464c184baf6
+ref table client_health
+ref table client_history
+ref table LocalDateTable_9c2d03a8-0f83-49e3-822f-295e6a8e59a2
+ref table LocalDateTable_5d98af21-3f95-418f-8b57-143831c747c8
+ref table client_interactions
+ref table LocalDateTable_acb01290-5094-4402-8677-8be30e45a42f
+ref table LocalDateTable_c2eb209e-f6b3-44e6-b5db-bb990dddff8e
+ref table client_master
+ref table client_revenue
+ref table LocalDateTable_5ed3fd65-011d-462f-a19e-1da05d6106b1
+ref table client_satisfaction
+ref table LocalDateTable_ffec0a3b-9e10-47c7-bc8c-8713670f6e32
+ref table employee_attrition_history
+ref table LocalDateTable_e6ec33a7-4752-44e5-9c0e-0894f806fbc6
+ref table LocalDateTable_f9f449bc-60cc-4b71-a59f-0676fa467f9a
+ref table employee_leave_data
+ref table LocalDateTable_bd7bac48-5fd1-4c95-a909-4c466e707217
+ref table LocalDateTable_dd139002-94e6-47aa-8593-ab75162dfa18
+ref table employee_master
+ref table LocalDateTable_b13b5cad-73f9-467d-b457-37df5db7d338
+ref table employee_skills
+ref table invoice_master
+ref table LocalDateTable_bd922105-c3eb-4b40-95ab-0826f762e06a
+ref table LocalDateTable_ff2d85a8-d60c-498e-b53f-d61758c1c33b
+ref table payment_collection
+ref table LocalDateTable_c8b5bab5-07b8-40f9-8d79-52efcbc4e7a4
+ref table profitability_analysis
+ref table LocalDateTable_9899173e-60fc-4de2-ae3f-5453baeeb69c
+ref table project_history
+ref table LocalDateTable_556dbb7e-2208-4502-9a16-97d12d9c16af
+ref table LocalDateTable_336f1fd7-e4c5-4e8f-900b-423fa61335a6
+ref table LocalDateTable_93a040fc-7c44-4a12-ae7a-5ee4eb7633f1
+ref table project_master
+ref table LocalDateTable_a9b68f44-f96f-4287-a525-0a5ffa9bcfb3
+ref table project_milestones
+ref table LocalDateTable_ac188b4c-75c2-4e49-bcb7-03765d6902bd
+ref table LocalDateTable_99c03d65-bba4-47d2-bc1a-dfd70df0c3d9
+ref table project_performance
+ref table project_phases
+ref table LocalDateTable_0746c844-7e45-4fcd-a67e-fb4db906a45f
+ref table LocalDateTable_15a32ad1-f477-4c08-b807-b434253a1c54
+ref table project_risks
+ref table project_tasks
+ref table LocalDateTable_40667c75-c71a-4852-b0c2-0d97a63614ff
+ref table LocalDateTable_25fd7997-e9e0-465f-ab8c-6a5e194e83ef
+ref table project_team_allocation
+ref table LocalDateTable_5161aff0-5537-42bd-9688-ffab0ac865f2
+ref table LocalDateTable_bf571c54-d821-405a-8aad-8c3b11cfd123
+ref table project_timesheets
+ref table LocalDateTable_48fcf5e1-f8fb-4bab-91d5-b78f9de9f80a
+ref table revenue_forecast
+ref table LocalDateTable_73689bb4-b603-4a77-a212-c0fefcb70fed
+ref table revenue_master
+ref table LocalDateTable_b1c3483d-b6cb-4d33-b661-2de81cd3215e
+ref table LocalDateTable_e95ca6f0-4ecf-45ac-834b-8943580dfe4e
+ref table 'Measures (2)'
+ref table Date_Table
+ref table LocalDateTable_43753f5f-c370-4342-89da-2a009fe2c993
+
+ref cultureInfo en-US
+

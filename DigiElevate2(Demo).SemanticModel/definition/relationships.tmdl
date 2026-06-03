@@ -1,0 +1,424 @@
+relationship cba05e58-9dce-4edf-bdc6-823b073f23ad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_contracts.project_start_date
+	toColumn: LocalDateTable_83de5a73-4688-44be-a7a7-b4ab25cae35f.Date
+
+relationship d85abe63-13a4-4647-90db-bbebf1b8ecc6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_contracts.project_end_date
+	toColumn: LocalDateTable_7b594904-d819-4e17-a3ec-0f2859fb9303.Date
+
+relationship e1d60ec6-f84b-440a-94a4-7bd262c7dd07
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_contracts.contract_start_date
+	toColumn: LocalDateTable_af73b791-1a9f-435f-bde4-56a9a4912364.Date
+
+relationship 82a9b112-a78d-44bc-aa72-a36d7d8772ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_contracts.contract_end_date
+	toColumn: LocalDateTable_5765393c-b8f6-474f-8b8c-4f3982e23cfc.Date
+
+relationship 49784a11-aa3d-49b9-aab7-74efc4403d6c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_contracts.renewal_date
+	toColumn: LocalDateTable_f096a633-3156-4108-bf5d-8464c184baf6.Date
+
+relationship 08e1ae5b-27a7-4d7a-86ef-bd0caa4f7130
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_history.valid_from
+	toColumn: LocalDateTable_9c2d03a8-0f83-49e3-822f-295e6a8e59a2.Date
+
+relationship 1cee8d96-dd07-42c0-a8a7-67941bb62b40
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_history.valid_to
+	toColumn: LocalDateTable_5d98af21-3f95-418f-8b57-143831c747c8.Date
+
+relationship 058d6f12-2bfd-41d3-adb4-3fa5da9617e8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_interactions.interaction_date
+	toColumn: LocalDateTable_acb01290-5094-4402-8677-8be30e45a42f.Date
+
+relationship aea34f4a-b435-4534-ae56-ce4fa34b7651
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_interactions.next_followup_date
+	toColumn: LocalDateTable_c2eb209e-f6b3-44e6-b5db-bb990dddff8e.Date
+
+relationship b5f26b65-1007-4861-bceb-e4effb4b9e3a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_revenue.recognition_date
+	toColumn: LocalDateTable_5ed3fd65-011d-462f-a19e-1da05d6106b1.Date
+
+relationship 3f1afeca-5b3d-4444-b57a-39aef6192b47
+	joinOnDateBehavior: datePartOnly
+	fromColumn: client_satisfaction.survey_date
+	toColumn: LocalDateTable_ffec0a3b-9e10-47c7-bc8c-8713670f6e32.Date
+
+relationship f7e704ee-00ed-4dc9-84e5-8bb94a353884
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employee_attrition_history.valid_from
+	toColumn: LocalDateTable_e6ec33a7-4752-44e5-9c0e-0894f806fbc6.Date
+
+relationship 8075ad02-5f54-499d-bae2-62529b206acc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employee_attrition_history.valid_to
+	toColumn: LocalDateTable_f9f449bc-60cc-4b71-a59f-0676fa467f9a.Date
+
+relationship 2674459a-8944-4c66-a4ed-144a9bd72b45
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employee_leave_data.start_date
+	toColumn: LocalDateTable_bd7bac48-5fd1-4c95-a909-4c466e707217.Date
+
+relationship d555bc28-3c1e-433e-a4d0-3aca6bcc128e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employee_leave_data.end_date
+	toColumn: LocalDateTable_dd139002-94e6-47aa-8593-ab75162dfa18.Date
+
+relationship bc12698e-4675-48c7-bcd1-3687a178c78b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: employee_master.dob
+	toColumn: LocalDateTable_b13b5cad-73f9-467d-b457-37df5db7d338.Date
+
+relationship 4af068d8-03c8-4c51-8926-970b77363b8e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: invoice_master.invoice_date
+	toColumn: LocalDateTable_bd922105-c3eb-4b40-95ab-0826f762e06a.Date
+
+relationship 1b0f5414-79ea-4581-98d3-b49f53e301fc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: invoice_master.due_date
+	toColumn: LocalDateTable_ff2d85a8-d60c-498e-b53f-d61758c1c33b.Date
+
+relationship 84871c98-4b6e-4cf9-8a27-37eb885770af
+	joinOnDateBehavior: datePartOnly
+	fromColumn: payment_collection.payment_date
+	toColumn: LocalDateTable_c8b5bab5-07b8-40f9-8d79-52efcbc4e7a4.Date
+
+relationship 73d5b60a-f378-4d8a-afe8-e8ca88670e87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: profitability_analysis.analysis_date
+	toColumn: LocalDateTable_9899173e-60fc-4de2-ae3f-5453baeeb69c.Date
+
+relationship 8e172a7c-21f3-430a-8f8f-98db3a894917
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_history.end_date
+	toColumn: LocalDateTable_556dbb7e-2208-4502-9a16-97d12d9c16af.Date
+
+relationship 2e8fcc83-404e-4f1b-8b07-ed6bf8232a92
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_history.valid_from
+	toColumn: LocalDateTable_336f1fd7-e4c5-4e8f-900b-423fa61335a6.Date
+
+relationship b6312115-0db1-4cba-a2e2-7eaf00b9e5ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_history.valid_to
+	toColumn: LocalDateTable_93a040fc-7c44-4a12-ae7a-5ee4eb7633f1.Date
+
+relationship 1833c5c0-d185-4745-b8b6-a176338f8db3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_master.project_end_date
+	toColumn: LocalDateTable_a9b68f44-f96f-4287-a525-0a5ffa9bcfb3.Date
+
+relationship 2d6fe7d7-1771-46ce-997b-fe8b76e534bc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_milestones.due_date
+	toColumn: LocalDateTable_ac188b4c-75c2-4e49-bcb7-03765d6902bd.Date
+
+relationship 5d475325-889e-471b-8d62-a6367ae3c6d5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_milestones.achieved_date
+	toColumn: LocalDateTable_99c03d65-bba4-47d2-bc1a-dfd70df0c3d9.Date
+
+relationship 082b22b7-b40f-482b-aa4c-dd0335f27d08
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_phases.phase_start_date
+	toColumn: LocalDateTable_0746c844-7e45-4fcd-a67e-fb4db906a45f.Date
+
+relationship 3525ade8-40f6-496b-a4c7-12c7f12ce63e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_phases.phase_end_date
+	toColumn: LocalDateTable_15a32ad1-f477-4c08-b807-b434253a1c54.Date
+
+relationship e9ee51ba-0a36-4844-8b59-61d1b82ea738
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_tasks.due_date
+	toColumn: LocalDateTable_40667c75-c71a-4852-b0c2-0d97a63614ff.Date
+
+relationship 31880fa9-c0ba-4fe8-907a-75e058a394cd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_tasks.completed_date
+	toColumn: LocalDateTable_25fd7997-e9e0-465f-ab8c-6a5e194e83ef.Date
+
+relationship 57dfff15-a633-4a9e-8fd2-42056872c24f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_team_allocation.allocation_start_date
+	toColumn: LocalDateTable_5161aff0-5537-42bd-9688-ffab0ac865f2.Date
+
+relationship 36e7fb25-e2d2-4acd-8d1a-1721f1afba07
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_team_allocation.allocation_end_date
+	toColumn: LocalDateTable_bf571c54-d821-405a-8aad-8c3b11cfd123.Date
+
+relationship e20e64d6-6c04-4270-81fc-4ad37f0e2687
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_timesheets.work_date
+	toColumn: LocalDateTable_48fcf5e1-f8fb-4bab-91d5-b78f9de9f80a.Date
+
+relationship f3e94a74-26ec-4de3-9580-0ea6aeee618b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: revenue_forecast.forecast_created_date
+	toColumn: LocalDateTable_73689bb4-b603-4a77-a212-c0fefcb70fed.Date
+
+relationship cdf52ea2-d5b1-4370-8b7b-9eea910d7450
+	joinOnDateBehavior: datePartOnly
+	fromColumn: revenue_master.revenue_date
+	toColumn: LocalDateTable_b1c3483d-b6cb-4d33-b661-2de81cd3215e.Date
+
+relationship 258b1aa1-ad39-4058-84e8-c3d161b44bdc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: revenue_master.recognition_date
+	toColumn: LocalDateTable_e95ca6f0-4ecf-45ac-834b-8943580dfe4e.Date
+
+relationship AutoDetected_cfc2c259-c92d-4e86-8c1d-2398649ebac9
+	fromColumn: client_contacts.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_e35f94aa-05bd-4909-936e-b64e1f59fde3
+	fromColumn: client_contracts.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_289f4244-2051-4977-aa65-d096ba934836
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: client_history.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_86bc1d91-2202-407d-bac5-a681d74ce90f
+	fromColumn: client_interactions.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_65cc6b4a-3d9c-4ffe-a9a6-1ad2a62ae77f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: client_master.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_f65bf9c7-2f2c-4253-898c-350ce666df1f
+	fromColumn: client_revenue.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_c3e14279-1a59-443f-9d47-cfd975d95509
+	fromColumn: client_satisfaction.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_edceaad5-61fd-4866-a8df-25951c00aed1
+	fromColumn: invoice_master.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_09d3d009-c043-47bc-9200-880ae033befe
+	fromColumn: payment_collection.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_b6d896ae-6316-42c4-9796-fba212c162d0
+	fromColumn: profitability_analysis.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_00133fa4-b6b9-4a97-bee2-43e634c0e7d2
+	fromColumn: project_master.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_ccf60897-d5b0-4fb4-b641-75d4796015a3
+	fromColumn: revenue_forecast.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_fdc59b89-9796-4f70-bd40-6039fedc70ad
+	fromColumn: revenue_master.client_id
+	toColumn: client_health.client_id
+
+relationship AutoDetected_cf415653-6860-416b-96f0-570c50d7850b
+	isActive: false
+	fromColumn: client_revenue.contract_id
+	toColumn: client_contracts.contract_id
+
+relationship AutoDetected_016bfdc2-20ed-436b-a56a-b46c5931bf47
+	isActive: false
+	fromColumn: invoice_master.contract_id
+	toColumn: client_contracts.contract_id
+
+relationship AutoDetected_35764f2d-6585-49f6-b504-125ddab5e7cb
+	isActive: false
+	fromColumn: revenue_master.contract_id
+	toColumn: client_contracts.contract_id
+
+relationship AutoDetected_79ccff37-9fd0-4ea6-b31f-c69546420632
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: project_history.historical_id
+	toColumn: client_history.historical_id
+
+relationship AutoDetected_70e141e1-a632-49eb-aff8-929a00cc7e70
+	fromColumn: client_interactions.employee_id
+	toColumn: employee_master.employee_id
+
+relationship AutoDetected_45af01dc-335c-4492-952c-04f9e4e27a74
+	fromColumn: project_team_allocation.employee_id
+	toColumn: employee_master.employee_id
+
+relationship AutoDetected_a0ead60c-d87d-4df9-9840-835a7ad4d560
+	fromColumn: project_timesheets.employee_id
+	toColumn: employee_master.employee_id
+
+relationship AutoDetected_3497a601-1085-443d-b0bb-b19d9ca0e940
+	isActive: false
+	fromColumn: client_revenue.client_name
+	toColumn: client_master.client_name
+
+relationship AutoDetected_9d407294-986a-4e36-b013-99dc087efa1f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: revenue_master.revenue_id
+	toColumn: profitability_analysis.revenue_id
+
+relationship AutoDetected_1d3ee8e9-6908-42fc-b858-b9ce68aaf42f
+	isActive: false
+	fromColumn: employee_master.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_f9c727a9-559b-411e-852e-e0ea4a6eed78
+	isActive: false
+	fromColumn: invoice_master.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_47de133e-1365-4b3e-ad3d-69bf3e5273d1
+	isActive: false
+	fromColumn: payment_collection.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_4961d8c8-d480-4fab-b266-fa8ea44fad9d
+	isActive: false
+	fromColumn: profitability_analysis.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_938de338-808a-497b-9252-2e49ea781664
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: project_master.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_806bd3d9-83e2-4803-a5a2-8a71b16dd2b5
+	fromColumn: project_milestones.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_be4012cf-e966-4109-a567-b636335d7740
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: project_performance.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_54ca6181-a81a-4b2e-9ef3-ea196e6c2727
+	fromColumn: project_phases.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_0c41b6b2-0e15-40f1-8aa8-e71f25002b36
+	fromColumn: project_risks.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_17e5f94b-be47-4248-b872-7810d6aae4ab
+	fromColumn: project_tasks.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_88685dc7-28ec-48ba-988b-6629dcc8ad6a
+	fromColumn: project_team_allocation.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_f408bd59-981d-4640-b295-a3d0b98cc111
+	fromColumn: project_timesheets.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_a336552c-4e74-4918-808e-0cc59a5f9072
+	isActive: false
+	fromColumn: revenue_forecast.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_27be816f-c4fd-4368-968e-db99b050f26b
+	isActive: false
+	fromColumn: revenue_master.project_id
+	toColumn: project_history.project_id
+
+relationship AutoDetected_50b8b8e8-0345-495e-a56f-262a473aa423
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: payment_collection.invoice_id
+	toColumn: invoice_master.invoice_id
+
+relationship AutoDetected_e9854455-62d6-44b6-b62b-0beeff0f90a8
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: revenue_master.invoice_id
+	toColumn: invoice_master.invoice_id
+
+relationship AutoDetected_c34690eb-6c83-45b8-b087-73b90cd39484
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: revenue_master.outstanding_amount
+	toColumn: payment_collection.outstanding_amount
+
+relationship AutoDetected_a796b92c-76e1-40aa-9cca-8b5883c80e41
+	fromColumn: employee_leave_data.emp_id
+	toColumn: employee_attrition_history.emp_id
+
+relationship AutoDetected_76b2e053-6558-4af7-91fd-a13ca24d7dd8
+	fromColumn: employee_skills.emp_id
+	toColumn: employee_attrition_history.emp_id
+
+relationship AutoDetected_ea388ee4-52e9-4f70-b120-7a0dcc84d308
+	isActive: false
+	fromColumn: project_milestones.phase_id
+	toColumn: project_phases.phase_id
+
+relationship AutoDetected_02c55873-f3ca-4566-ace5-973c1a4418bf
+	isActive: false
+	fromColumn: project_tasks.phase_id
+	toColumn: project_phases.phase_id
+
+relationship AutoDetected_86ece7d1-c525-4c8b-a02f-dc13b688536f
+	isActive: false
+	fromColumn: project_timesheets.task_id
+	toColumn: project_tasks.task_id
+
+relationship 0800f649-43b6-5fc6-7b9e-8ac7bb819dfa
+	fromColumn: employee_attrition_history.emp_id
+	toColumn: employee_master.employee_id
+
+relationship d00d4999-957d-2f83-c802-43c3013a7af6
+	isActive: false
+	fromColumn: employee_skills.emp_id
+	toColumn: employee_master.employee_id
+
+relationship 1b15b365-61d1-b8b6-2e13-8af55161cda3
+	isActive: false
+	fromColumn: employee_leave_data.emp_id
+	toColumn: employee_master.employee_id
+
+relationship f3a06c94-4a21-46b7-80c5-43dbb0a029ff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date_Table.Date
+	toColumn: LocalDateTable_43753f5f-c370-4342-89da-2a009fe2c993.Date
+
+relationship 32fc89ab-7907-fb7c-e746-3856f790d7be
+	fromColumn: employee_master.joining_date
+	toColumn: Date_Table.Date
+
+relationship 310f9edd-a13b-6e14-e60d-e374cb233982
+	isActive: false
+	fromColumn: client_master.onboarded_date
+	toColumn: Date_Table.Date
+
+relationship 28849843-8d2f-95f1-7eb4-60c0c0d6d1c4
+	fromColumn: project_master.project_start_date
+	toColumn: Date_Table.Date
+

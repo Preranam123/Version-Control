@@ -1,0 +1,90 @@
+table Date_Table
+	lineageTag: 1ac5f36a-e219-421c-9e9e-6a381e13b2a2
+
+	column Date
+		formatString: General Date
+		lineageTag: 36c9cd0e-032f-4a15-9461-a41ac79fc05e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: f3a06c94-4a21-46b7-80c5-43dbb0a029ff
+			defaultHierarchy: LocalDateTable_43753f5f-c370-4342-89da-2a009fe2c993.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: c7c5f5c3-c12b-495f-9d32-891f46dd8278
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 9e4173a0-c2e7-4f4f-8f59-8da995ae8a82
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: badab6bb-aeb8-4463-a8c4-834e2e7b90a3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short'
+		lineageTag: 4225eeeb-5230-493b-a768-a42238efead4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Short]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 4ada6dcf-588f-4e46-823d-3e656d65b9b0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: 97898875-2c18-4691-8b82-3162834b4b4d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		lineageTag: 28cf2579-fe21-4ae3-aac7-d27acedfe9ef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekday Number'
+		formatString: 0
+		lineageTag: 17357395-f10a-4e77-b2e5-feb9e6480342
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Weekday Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date_Table = calculated
+		mode: import
+		source = ADDCOLUMNS ( CALENDAR (DATE(2024,1,1), DATE(2026,12,31)), "Year", YEAR([Date]), "Month Number", MONTH([Date]), "Month", FORMAT([Date], "MMMM"), "Month Short", FORMAT([Date], "MMM"), "Quarter", "Q" & FORMAT([Date], "Q"), "Year-Month", FORMAT([Date], "YYYY-MM"), "Weekday", FORMAT([Date], "dddd"), "Weekday Number", WEEKDAY([Date],2) )
+
+	annotation PBI_Id = 23628108cd1041e0bc03fe5f70a88637
+

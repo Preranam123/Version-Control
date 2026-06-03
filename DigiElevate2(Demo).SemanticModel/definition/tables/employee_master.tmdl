@@ -1,0 +1,611 @@
+table employee_master
+	lineageTag: 50901c54-aca1-4a89-a68c-783b325b6a6e
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: df4529d0-abdf-4e07-b81d-a85c9f286102
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: 1202e1c5-39c2-41c1-833e-e6428d3e5170
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: b9a6c68c-2c08-4946-8b2a-39443a134f53
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: 51de12b9-d58a-42a0-9bbd-af5195599a75
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 629a2f44-baa8-416e-b2ac-02053ca8d8bb
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column personal_email
+		dataType: string
+		lineageTag: 81b6aae6-5ebd-4b2d-9dd1-8c4ac5ff45bf
+		summarizeBy: none
+		sourceColumn: personal_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_email
+		dataType: string
+		lineageTag: ff4c95ae-ede2-42c2-b695-c2f2036a1109
+		summarizeBy: none
+		sourceColumn: work_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: int64
+		formatString: 0
+		lineageTag: 18874b45-7e97-4753-bf62-1a983af37993
+		summarizeBy: sum
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column alternate_phone
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d37a619-2b2b-4b24-8109-46f5787c7515
+		summarizeBy: sum
+		sourceColumn: alternate_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column dob
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4295907f-e16d-4c8d-9497-cc9bb533e13b
+		summarizeBy: none
+		sourceColumn: dob
+
+		variation Variation
+			isDefault
+			relationship: bc12698e-4675-48c7-bcd1-3687a178c78b
+			defaultHierarchy: LocalDateTable_b13b5cad-73f9-467d-b457-37df5db7d338.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 762a47dc-7b07-464f-9975-21c4d49781a2
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 338dc2e8-99b6-443d-a871-b0d540469335
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column marital_status
+		dataType: string
+		lineageTag: ab3e23d1-1104-4281-9c1b-d26b4246f572
+		summarizeBy: none
+		sourceColumn: marital_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column nationality
+		dataType: string
+		lineageTag: a0c91d64-1bd8-4173-9556-01ce60bbca6a
+		summarizeBy: none
+		sourceColumn: nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column blood_group
+		dataType: string
+		lineageTag: 71e86bca-a9cb-42b7-8001-3cacd2184fbc
+		summarizeBy: none
+		sourceColumn: blood_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column address
+		dataType: string
+		lineageTag: dcea9e81-ea1b-4344-8d7a-1ffafcc4987a
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: c7649aaf-38a7-45d5-b237-c44358236f38
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 27738f2c-7010-49db-8d12-9e632dbbbbf7
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 5180ba3d-73dd-41e1-b9a3-9c4f19d8e7ba
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column entity
+		dataType: string
+		lineageTag: 7f528f52-ad1c-426b-9dd3-329a9d6f5536
+		summarizeBy: none
+		sourceColumn: entity
+
+		annotation SummarizationSetBy = Automatic
+
+	column joining_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 45d3b9ae-05a5-40b4-8a39-efbaaad1614f
+		summarizeBy: none
+		sourceColumn: joining_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hire_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 298f4ae3-d606-457f-bffe-af0e99db715a
+		summarizeBy: sum
+		sourceColumn: hire_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column years_at_company
+		dataType: double
+		lineageTag: bcd67f49-1fce-4ab8-ad90-470289cf78aa
+		summarizeBy: sum
+		sourceColumn: years_at_company
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column designation
+		dataType: string
+		lineageTag: 4ea722ea-123e-4871-ab51-2a4c8f6eb26e
+		summarizeBy: none
+		sourceColumn: designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_type
+		dataType: string
+		lineageTag: 9515b777-1d0d-4215-8914-e13270722a13
+		summarizeBy: none
+		sourceColumn: employment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_status
+		dataType: string
+		lineageTag: 58cff558-f5dc-41d8-93fc-dce829330170
+		summarizeBy: none
+		sourceColumn: employment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column reporting_manager_id
+		dataType: string
+		lineageTag: ebefab1b-c330-4f55-97cd-ce232af56a65
+		summarizeBy: none
+		sourceColumn: reporting_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column emergency_contact_name
+		dataType: string
+		lineageTag: 4c363eb3-2a28-45e9-99da-561b9e3bea9f
+		summarizeBy: none
+		sourceColumn: emergency_contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column emergency_contact_phone
+		dataType: double
+		lineageTag: 99f8997b-1cc6-438b-9542-a591135dfa76
+		summarizeBy: sum
+		sourceColumn: emergency_contact_phone
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column emergency_contact_relation
+		dataType: string
+		lineageTag: 17c0eb24-2106-49db-94c5-9d53745bc2fa
+		summarizeBy: none
+		sourceColumn: emergency_contact_relation
+
+		annotation SummarizationSetBy = Automatic
+
+	column capability
+		dataType: string
+		lineageTag: 91eb37fc-7531-496a-8ac3-99ea2c070451
+		summarizeBy: none
+		sourceColumn: capability
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_group
+		dataType: string
+		lineageTag: f8dc8fe7-0af1-40a4-abda-a993a343cfac
+		summarizeBy: none
+		sourceColumn: allocation_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column billable_status
+		dataType: string
+		lineageTag: 8589d375-72fd-40aa-8de6-f78617965c58
+		summarizeBy: none
+		sourceColumn: billable_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: a59b038c-10e4-4d38-8d88-9f0d7db97f0e
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_group
+		dataType: string
+		lineageTag: 9689408a-14a9-4555-9ed0-0d1c1780d799
+		summarizeBy: none
+		sourceColumn: shift_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_description
+		dataType: string
+		lineageTag: 06aaf341-4993-442e-928d-2041290f7d85
+		summarizeBy: none
+		sourceColumn: shift_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_start_time
+		dataType: string
+		lineageTag: 7b8ae90f-db73-4a72-8467-e8ea8e31d440
+		summarizeBy: none
+		sourceColumn: shift_start_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_end_time
+		dataType: string
+		lineageTag: 33fa8942-d42c-44bb-a1a1-660c9d14997f
+		summarizeBy: none
+		sourceColumn: shift_end_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_working_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fe5ad92-c9d4-44f1-b7d9-5e99b6452fba
+		summarizeBy: sum
+		sourceColumn: gross_working_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column break_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: d9b1443e-6421-4ff9-8f57-0790c7882ebc
+		summarizeBy: sum
+		sourceColumn: break_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column working_days
+		dataType: string
+		lineageTag: cc730467-2213-4a63-8e71-e2387f4ff402
+		summarizeBy: none
+		sourceColumn: working_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_mode
+		dataType: string
+		lineageTag: 982bce8b-7054-4bb1-a0f3-63a583ae985e
+		summarizeBy: none
+		sourceColumn: work_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column bank_name
+		dataType: string
+		lineageTag: 29f46473-37bd-4967-9b7e-7e7ad9d1386b
+		summarizeBy: none
+		sourceColumn: bank_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ae66570-7dc2-43d8-a574-6e90fbee518e
+		summarizeBy: sum
+		sourceColumn: account_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_type
+		dataType: string
+		lineageTag: 89207036-f40d-49d6-aa37-d1a0ed9247de
+		summarizeBy: none
+		sourceColumn: account_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column ifsc_code
+		dataType: string
+		lineageTag: be281679-3532-46cf-98c8-55c0fac89d96
+		summarizeBy: none
+		sourceColumn: ifsc_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: df26bb84-37b8-4871-8ecd-16a394afe0c8
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column yearly_salary
+		dataType: int64
+		formatString: 0
+		lineageTag: 584a5277-3f42-49b5-b808-985340a935ef
+		summarizeBy: sum
+		sourceColumn: yearly_salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_salary
+		dataType: double
+		lineageTag: f451b4e5-c34f-4ee3-b580-89a722180031
+		summarizeBy: sum
+		sourceColumn: monthly_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_salary
+		dataType: double
+		lineageTag: 5353045e-d4da-44d0-bcb7-ca145cdc4134
+		summarizeBy: sum
+		sourceColumn: gross_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_deduction
+		dataType: double
+		lineageTag: 3bc6c6d9-d956-46f1-80e1-f1ca7d1b2025
+		summarizeBy: sum
+		sourceColumn: tax_deduction
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pf_contribution
+		dataType: double
+		lineageTag: 98a49016-1103-4723-bea4-2cbeb86cabb4
+		summarizeBy: sum
+		sourceColumn: pf_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column other_deductions
+		dataType: double
+		lineageTag: 3acb14f8-a26a-4fa6-a6e2-8ef901fc2f48
+		summarizeBy: sum
+		sourceColumn: other_deductions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_salary
+		dataType: double
+		lineageTag: d382feb2-33e5-4d42-9702-77171a29c2a1
+		summarizeBy: sum
+		sourceColumn: net_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rating_score
+		dataType: double
+		lineageTag: 3810d118-6619-40bb-b46b-fe82e8a76cf9
+		summarizeBy: sum
+		sourceColumn: rating_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column goal_completion_percent
+		dataType: int64
+		formatString: 0
+		lineageTag: eda0a356-e0cb-4cca-8eb0-930b96b03f9a
+		summarizeBy: sum
+		sourceColumn: goal_completion_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Band' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[yearly_salary] < 300000, "< 3 Lakh",
+			    employee_master[yearly_salary] < 500000, "3 - 5 Lakh",
+			    employee_master[yearly_salary] < 1000000, "5 - 10 Lakh",
+			    employee_master[yearly_salary] < 1500000, "10 - 15 Lakh",
+			    employee_master[yearly_salary] < 2000000, "15 - 20 Lakh",
+			    employee_master[yearly_salary] < 2500000, "20 - 25 Lakh",
+			    employee_master[yearly_salary] < 3000000, "25 - 30 Lakh",
+			    "30+ Lakh"
+			)
+		lineageTag: fb6e4108-9b36-4c47-8c03-02e0da9c7ac9
+		summarizeBy: none
+		sortByColumn: 'Salary Band Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Band Sort' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[yearly_salary] < 300000, 1,
+			    employee_master[yearly_salary] < 500000, 2,
+			    employee_master[yearly_salary] < 1000000, 3,
+			    employee_master[yearly_salary] < 1500000, 4,
+			    employee_master[yearly_salary] < 2000000, 5,
+			    employee_master[yearly_salary] < 2500000, 6,
+			    employee_master[yearly_salary] < 3000000, 7,
+			    8
+			)
+		formatString: 0
+		lineageTag: fb1a797e-7ffb-4a8e-9095-5b0bf07e18da
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tenure Band' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[years_at_company] < 1, "< 1 Year",
+			    employee_master[years_at_company] < 2, "1 - 2 Years",
+			    employee_master[years_at_company] < 3, "2 - 3 Years",
+			    employee_master[years_at_company] < 5, "3 - 5 Years",
+			    employee_master[years_at_company] < 10, "5 - 10 Years",
+			    "10+ Years"
+			)
+		lineageTag: 66ef1246-5851-41df-b874-979b9631a053
+		summarizeBy: none
+		sortByColumn: 'Tenure Band Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tenure Band Sort' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[years_at_company] < 1, 1,
+			    employee_master[years_at_company] < 2, 2,
+			    employee_master[years_at_company] < 3, 3,
+			    employee_master[years_at_company] < 5, 4,
+			    employee_master[years_at_company] < 10, 5,
+			    6
+			)
+		formatString: 0
+		lineageTag: 2765ca45-8058-4da6-9608-a594493041e3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Band' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[age] < 25, "< 25",
+			    employee_master[age] < 35, "25 - 34",
+			    employee_master[age] < 45, "35 - 44",
+			    employee_master[age] < 55, "45 - 54",
+			    "55+"
+			)
+		lineageTag: df362053-04cd-4fbe-921b-5069388b96b2
+		summarizeBy: none
+		sortByColumn: 'Age Band Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Band Sort' =
+			
+			SWITCH(
+			    TRUE(),
+			    employee_master[age] < 25, 1,
+			    employee_master[age] < 35, 2,
+			    employee_master[age] < 45, 3,
+			    employee_master[age] < 55, 4,
+			    5
+			)
+		formatString: 0
+		lineageTag: 8a30db50-fd99-4238-9b35-ef3889253315
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_master = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    employee_master_Table = DigiElevate2_Schema{[Name="employee_master",Kind="Table"]}[Data]
+				in
+				    employee_master_Table
+

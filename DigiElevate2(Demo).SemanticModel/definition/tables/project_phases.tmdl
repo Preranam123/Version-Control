@@ -1,0 +1,89 @@
+table project_phases
+	lineageTag: 9c107861-c6b1-4b53-a7b1-f1e507fcdf5a
+
+	column phase_id
+		dataType: string
+		lineageTag: 5da9ac57-24ea-4b38-9f1f-d0865397f977
+		summarizeBy: none
+		sourceColumn: phase_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 499ad789-c086-4259-b42b-6fba4a6bcdd8
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column phase_name
+		dataType: string
+		lineageTag: 06f1ffde-6cf8-4ca0-8c17-99d987c1c08a
+		summarizeBy: none
+		sourceColumn: phase_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column phase_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f6d73b09-6ff3-4fac-85e1-70b2508045f3
+		summarizeBy: none
+		sourceColumn: phase_start_date
+
+		variation Variation
+			isDefault
+			relationship: 082b22b7-b40f-482b-aa4c-dd0335f27d08
+			defaultHierarchy: LocalDateTable_0746c844-7e45-4fcd-a67e-fb4db906a45f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column phase_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1ed419c9-5ebc-4676-b6f6-8673532ab114
+		summarizeBy: none
+		sourceColumn: phase_end_date
+
+		variation Variation
+			isDefault
+			relationship: 3525ade8-40f6-496b-a4c7-12c7f12ce63e
+			defaultHierarchy: LocalDateTable_15a32ad1-f477-4c08-b807-b434253a1c54.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column phase_status
+		dataType: string
+		lineageTag: efc23411-a38b-40cc-b58a-cea4c0abae5b
+		summarizeBy: none
+		sourceColumn: phase_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_sequence
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c2ff38e-b63c-476a-b359-eef2c83bb368
+		summarizeBy: sum
+		sourceColumn: order_sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_phases = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_phases_Table = DigiElevate2_Schema{[Name="project_phases",Kind="Table"]}[Data]
+				in
+				    project_phases_Table
+
+	annotation PBI_ResultType = Table
+

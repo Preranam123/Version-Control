@@ -1,0 +1,251 @@
+table client_master
+	lineageTag: 3a389415-73f9-4e27-bd05-3002bd8fbebf
+
+	column client_id
+		dataType: string
+		lineageTag: 2370d102-3f53-4c27-b543-90c90c8f7cff
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_name
+		dataType: string
+		lineageTag: 1fd56392-d0b3-4c1d-9cce-2f7b2df2be4c
+		summarizeBy: none
+		sourceColumn: client_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_contact_name
+		dataType: string
+		lineageTag: 676a75a7-a6db-4ff8-b9a4-1c28078577bb
+		summarizeBy: none
+		sourceColumn: primary_contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_email
+		dataType: string
+		lineageTag: de56e30e-c9dd-455f-8e88-f212b60e95f9
+		summarizeBy: none
+		sourceColumn: contact_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_phone
+		dataType: int64
+		formatString: 0
+		lineageTag: dee28d56-0771-4cb7-8bcf-e973fc73e979
+		summarizeBy: sum
+		sourceColumn: contact_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry
+		dataType: string
+		lineageTag: 02ce5e34-5f4a-4258-a317-3595ce054392
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column website
+		dataType: string
+		lineageTag: 33058a85-324e-444a-a7d1-1af561ddfc50
+		summarizeBy: none
+		sourceColumn: website
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: b4122d63-824b-475c-a6bb-f7ebacd739ef
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 5962eaee-e586-49a4-a804-423a0f4ffd3a
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 7985815f-1f51-48ed-a845-cedaa87b2403
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_status
+		dataType: string
+		lineageTag: a6ac0a93-8f35-46c9-b1fd-ed67439cdcb3
+		summarizeBy: none
+		sourceColumn: client_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column onboarded_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5cb49095-db0f-41e8-9916-0fc2289848b9
+		summarizeBy: none
+		sourceColumn: onboarded_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column lead_source
+		dataType: string
+		lineageTag: be4f0cdf-eabe-4024-bd99-c4695f8e9f15
+		summarizeBy: none
+		sourceColumn: lead_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_manager
+		dataType: string
+		lineageTag: 0c00a94c-879a-41bb-aeb2-357186cfb3fa
+		summarizeBy: none
+		sourceColumn: account_manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_manager_name
+		dataType: string
+		lineageTag: 01c3523a-c193-41a0-b1e3-4e21949173b2
+		summarizeBy: none
+		sourceColumn: account_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_success_manager
+		dataType: string
+		lineageTag: 850cb503-7617-4f14-94b7-e2825d0a5672
+		summarizeBy: none
+		sourceColumn: customer_success_manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_success_manager_name
+		dataType: string
+		lineageTag: 8aa44165-7029-4c1e-87be-25f0d61ede37
+		summarizeBy: none
+		sourceColumn: customer_success_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column preferred_contact_mode
+		dataType: string
+		lineageTag: a4427497-ac81-425e-80fc-6c6ab8f920c2
+		summarizeBy: none
+		sourceColumn: preferred_contact_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_size
+		dataType: string
+		lineageTag: 412019c3-dda8-44a2-b795-daf570a76dbf
+		summarizeBy: none
+		sourceColumn: company_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_size
+		dataType: int64
+		formatString: 0
+		lineageTag: d2e06970-1d10-4b4f-81c8-78d44273b98e
+		summarizeBy: sum
+		sourceColumn: employee_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_recurring_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 28f0caa1-8e83-4831-aff6-93be355940f6
+		summarizeBy: sum
+		sourceColumn: monthly_recurring_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_recurring_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 81b0a774-a4f0-480c-ad58-4ab80d96a3ef
+		summarizeBy: sum
+		sourceColumn: annual_recurring_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 478c8551-cfb5-4084-b056-ca17296107b6
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column average_monthly_spend
+		dataType: double
+		lineageTag: 7774b7e9-5078-47a4-8d02-4adaa1f6ba76
+		summarizeBy: sum
+		sourceColumn: average_monthly_spend
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue_band
+		dataType: string
+		lineageTag: ecb06c19-9455-46db-95b8-dff967e2d562
+		summarizeBy: none
+		sourceColumn: revenue_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column overdue_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: c4408276-71de-40b9-bcc4-674c5656db8d
+		summarizeBy: sum
+		sourceColumn: overdue_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ec93dfc-da99-4430-9f93-7574d85f434b
+		summarizeBy: sum
+		sourceColumn: net_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_lifetime_value
+		dataType: int64
+		formatString: 0
+		lineageTag: 3eec6b4e-b412-45cf-95d5-f43f7814761d
+		summarizeBy: sum
+		sourceColumn: customer_lifetime_value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_master = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_master_Table = DigiElevate2_Schema{[Name="client_master",Kind="Table"]}[Data]
+				in
+				    client_master_Table
+

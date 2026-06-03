@@ -1,0 +1,784 @@
+table 'Measures (2)'
+	lineageTag: 33e05584-2c96-4766-9db3-588a6ab3586e
+
+	measure 'Total Employees' = COUNT(employee_master[employee_id])
+		formatString: 0
+		lineageTag: 0b79c2e7-9da9-4347-957f-5feba55a2e2b
+
+	measure 'Active Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[employment_status]="Active" )
+		formatString: 0
+		lineageTag: 2231aa94-ad52-457f-bc74-8c0f89980bc1
+
+	measure 'Exited Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[employment_status]="Exited" )
+		formatString: 0
+		lineageTag: 68ad604b-bb9f-435e-80fc-483370326fe2
+
+	measure 'Attrition Rate %' = DIVIDE( [Exited Employees], [Total Employees], 0 ) * 100
+		lineageTag: c9930002-0fa0-4e30-989d-bf3a5bcb8b36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Male Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[gender]="M" )
+		formatString: 0
+		lineageTag: 44f9e3cc-8812-4505-9c74-9f7cdf3be63a
+
+	measure 'Female Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[gender]="F" )
+		formatString: 0
+		lineageTag: 4a79522b-478f-4b8c-a950-4cf56b662cec
+
+	measure 'Gender Ratio %' = DIVIDE( [Female Employees], [Total Employees], 0 ) *100
+		lineageTag: 783fc099-70e6-40ae-b291-25c3197dd726
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Salary' = AVERAGE(employee_master[yearly_salary])
+		lineageTag: 80c23489-a682-4db7-9c2c-31035b6c04f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Salary Expense' = SUM(employee_master[yearly_salary])
+		formatString: 0
+		lineageTag: 1a963680-926b-43ca-b33a-d7ab12c2f517
+
+	measure 'Average Net Salary' = AVERAGE(employee_master[net_salary])
+		lineageTag: efdad132-d2de-428f-b11f-e9ce3bfe372f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Rating' = AVERAGE(employee_master[rating_score])
+		lineageTag: d88d328a-ad8e-485f-9d29-e4d1d55a5fd2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Goal Completion' = AVERAGE(employee_master[goal_completion_percent])
+		lineageTag: 2e32ad91-76cb-45a8-b379-ba9b8923a6d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Billable Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[billable_status]="Billable" )
+		formatString: 0
+		lineageTag: 55a41a95-8689-4205-8248-62f1ede59a1f
+
+	measure 'Non Billable Employees' = CALCULATE( COUNT(employee_master[employee_id]), employee_master[billable_status]="Non-Billable" )
+		formatString: 0
+		lineageTag: dbd353be-b942-47be-a465-3bfd7d3aad2f
+
+	measure 'Billable %' =
+			
+			DIVIDE(
+			    [Billable Employees],
+			    [Total Employees],
+			    0
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 743e7152-160a-4205-a361-85a07249fc40
+
+	measure 'Average Tenure' = AVERAGE(employee_master[years_at_company])
+		lineageTag: d28cd797-f367-4ff2-a4f3-69f76cd0a7ce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Leaves' = COUNT(employee_leave_data[leave_id])
+		formatString: 0
+		lineageTag: 405f3c34-46ce-4117-b141-080d27bc427c
+
+	measure 'Approved Leaves' = CALCULATE( COUNT(employee_leave_data[leave_id]), employee_leave_data[status]="Approved" )
+		formatString: 0
+		lineageTag: 70b9539d-2a9a-4350-a213-98a5a2726a72
+
+	measure 'Rejected Leaves' = CALCULATE( COUNT(employee_leave_data[leave_id]), employee_leave_data[status]="Rejected" )
+		formatString: 0
+		lineageTag: 533da377-ebd2-4412-8c91-c92b3dd92781
+
+	measure 'Total Leave Days' = SUM(employee_leave_data[days_taken])
+		formatString: 0
+		lineageTag: dc0402ab-9197-4cac-b15f-fa59427e5fa9
+
+	measure 'Total Skills' = DISTINCTCOUNT(employee_skills[skill_name])
+		formatString: 0
+		lineageTag: 617ec6aa-513b-4835-8019-c7ce239f8a6f
+
+	measure 'Certified Skills' = CALCULATE( COUNT(employee_skills[skill_name]), employee_skills[certification_flag]="Yes" )
+		formatString: 0
+		lineageTag: 4e40e482-1936-45f7-a991-1bbf809890ea
+
+	measure 'Total Clients' = ```
+			
+			DISTINCTCOUNT(client_master[client_id])
+			
+			```
+		formatString: 0
+		lineageTag: 428107fb-e8d1-4d40-a216-0efc58df8879
+
+	measure 'Active Clients' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(client_master[client_id]),
+			    client_master[client_status]="Active"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 59fd11bb-885e-49c0-a50a-da745293ad21
+
+	measure 'At Risk Clients' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(client_master[client_id]),
+			    client_master[client_status]="At Risk"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 81847877-f25c-4d8a-8de0-f6776ddf1ae3
+
+	measure 'Churned Clients' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(client_master[client_id]),
+			    client_master[client_status]="Churned"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 003ca0e8-ffc6-4ae5-b1e9-9669234e9e62
+
+	measure 'Client Retention %' = ```
+			
+			DIVIDE(
+			    [Active Clients],
+			    [Total Clients],
+			    0
+			)*100
+			
+			```
+		lineageTag: fc373831-7b42-4cba-a506-e8f60c971da7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue' = ```
+			
+			SUM(client_master[total_revenue])
+			
+			```
+		formatString: 0
+		lineageTag: 57dd1064-17ab-45f3-88a5-23204c98d81c
+
+	measure 'Total MRR' = ```
+			
+			SUM(client_master[monthly_recurring_revenue])
+			
+			```
+		formatString: 0
+		lineageTag: 9e501fb3-2621-4cf3-b485-dc8b078d0e10
+
+	measure 'Total ARR' = ```
+			
+			SUM(client_master[annual_recurring_revenue])
+			
+			```
+		formatString: 0
+		lineageTag: 71506843-832b-4042-8111-6c91fc5a3948
+
+	measure 'Average Revenue Per Client' =
+			
+			DIVIDE(
+			    [Total Revenue],
+			    [Total Clients],
+			    0
+			)
+		lineageTag: a205d992-4793-4c15-a95e-4acae84b0423
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Revenue' = ```
+			
+			SUM(client_master[net_revenue])
+			
+			```
+		formatString: 0
+		lineageTag: 6b09c17b-5ffc-45c1-8df0-aba0dd73f533
+
+	measure 'Overdue Amount' = ```
+			
+			SUM(client_master[overdue_amount])
+			
+			```
+		formatString: 0
+		lineageTag: fbe21e88-9656-4531-9745-c5f759387182
+
+	measure 'Average Health Score' = ```
+			
+			AVERAGE(client_health[health_score])
+			
+			```
+		lineageTag: 5a905788-6b7c-4c14-a375-9862ac1b2340
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Churn Risk' = ```
+			
+			AVERAGE(client_health[churn_risk_score])
+			
+			```
+		lineageTag: facb16a4-af5d-4bbc-8a8f-63631d0ff68a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Engagement Score' = ```
+			
+			AVERAGE(client_health[engagement_score])
+			
+			```
+		lineageTag: b7115f5a-1305-42b6-a123-aa396522a86b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Satisfaction Score' = ```
+			
+			AVERAGE(client_health[satisfaction_score])
+			
+			```
+		lineageTag: 93de5e4e-9d01-433f-bf2f-a72c38bf3813
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Support Score' = ```
+			
+			AVERAGE(client_health[support_score])
+			
+			```
+		lineageTag: ba496deb-2d43-4492-9f11-a71f8970228e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Renewal Probability' = ```
+			
+			AVERAGE(client_health[renewal_probability])
+			
+			```
+		lineageTag: 2aba4e54-a87c-46ce-846b-d3a1ceb05e22
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Contract Value' = ```
+			
+			SUM(client_contracts[total_contract_value])
+			
+			```
+		formatString: 0
+		lineageTag: 46867065-2727-452f-9f88-858c119ef5e2
+
+	measure 'Active Contracts' = ```
+			
+			CALCULATE(
+			COUNT(client_contracts[contract_id]),
+			client_contracts[contract_status]="Active"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: b29bf05d-3a73-461c-81b6-90c6d1c7978e
+
+	measure 'Expired Contracts' = ```
+			
+			CALCULATE(
+			COUNT(client_contracts[contract_id]),
+			client_contracts[contract_status]="Expired"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8e47f517-6738-4b2e-bf04-1430513f9208
+
+	measure 'Total Interactions' = ```
+			
+			COUNT(client_interactions[interaction_id])
+			
+			```
+		formatString: 0
+		lineageTag: 672d617d-0af1-4c27-bf3c-3a16938b52d0
+
+	measure 'Positive Interactions' = ```
+			
+			CALCULATE(
+			COUNT(client_interactions[interaction_id]),
+			client_interactions[interaction_outcome]="Positive"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ebb04af3-ade8-4d02-9c5a-844ed147ec24
+
+	measure 'Followups Required' = ```
+			
+			CALCULATE(
+			COUNT(client_interactions[interaction_id]),
+			client_interactions[followup_required]="Yes"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a9f513dd-71bb-4108-ae9e-c764fad46be0
+
+	measure 'Average NPS' = ```
+			
+			AVERAGE(client_satisfaction[net_promoter_score])
+			
+			```
+		lineageTag: 659d894e-8d0e-45b1-8d65-949aea3d896d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Promoters = ```
+			
+			CALCULATE(
+			COUNT(client_satisfaction[survey_id]),
+			client_satisfaction[customer_category]="Promoter"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 2726b230-6cc2-4bb9-80a2-0a24a199a319
+
+	measure 'Passive Customers' = ```
+			
+			CALCULATE(
+			COUNT(client_satisfaction[survey_id]),
+			client_satisfaction[customer_category]="Passive"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: cd5fd99f-6cb0-4feb-9f7b-ae5296d4265e
+
+	measure Detractors = ```
+			
+			CALCULATE(
+			COUNT(client_satisfaction[survey_id]),
+			client_satisfaction[customer_category]="Detractor"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1cb6963e-681c-439a-a640-ff372f712aa1
+
+	measure 'Total Projects' = ```
+			
+			DISTINCTCOUNT(project_master[project_id])
+			
+			```
+		formatString: 0
+		lineageTag: 636447e3-af9d-4f89-9bc1-efb94221b8e5
+
+	measure 'Active Projects' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(project_master[project_id]),
+			    project_master[project_status]="In Progress"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8e6e953a-f998-4672-9550-2dd1a1fb9628
+
+	measure 'Completed Projects' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(project_master[project_id]),
+			    project_master[project_status]="Completed"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 84e4c1f5-0e2c-42a3-bade-e5f6a4689205
+
+	measure 'Delayed Projects' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(project_master[project_id]),
+			    project_master[delivery_status]="Delayed"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 19052b74-bdac-4398-95f7-c005cfecd360
+
+	measure 'Critical Projects' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(project_master[project_id]),
+			    project_master[priority]="Critical"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 3ef28903-bcff-486e-92eb-76d4907633b9
+
+	measure 'Total Budget' = ```
+			
+			SUM(project_master[budget])
+			
+			```
+		formatString: 0
+		lineageTag: f7ecf051-489e-4d9f-88ad-e02a320e402f
+
+	measure 'Total Actual Cost' = ```
+			
+			SUM(project_master[actual_cost])
+			
+			```
+		formatString: 0
+		lineageTag: 5313942e-a16f-493c-8fce-7253be237c56
+
+	measure 'Budget Variance' = ```
+			
+			[Total Budget] - [Total Actual Cost]
+			
+			```
+		formatString: 0
+		lineageTag: 9996f4f6-3823-44c6-83bd-aa9c5626a739
+
+	measure 'Budget Variance %' = ```
+			
+			DIVIDE(
+			    [Budget Variance],
+			    [Total Budget],
+			    0
+			) *100
+			
+			```
+		lineageTag: 73aba488-a3eb-409d-bf71-4c06841ff4da
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Generated' = ```
+			
+			SUM(project_master[revenue_generated])
+			
+			```
+		formatString: 0
+		lineageTag: 8b26bce1-29f4-43c8-94b4-8c51d8efbb13
+
+	measure 'Average Profit Margin' = ```
+			
+			AVERAGE(project_master[profit_margin])
+			
+			```
+		lineageTag: 43413170-16ed-4de2-9816-8d96c4b12b3f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Completion %' = ```
+			
+			AVERAGE(project_master[completion_percentage])
+			
+			```
+		lineageTag: 79e2e13e-2b77-4297-a7cc-b0f495f69297
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Project Health Score' = ```
+			
+			AVERAGE(project_master[project_health_score])
+			
+			```
+		lineageTag: 48f8747e-3984-45a0-9a85-ec4eb72dcb52
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Project Success Score' = ```
+			
+			AVERAGE(project_performance[project_success_score])
+			
+			```
+		lineageTag: fa1382e6-01f0-4a3f-a634-ef17dc417994
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Timeline Variance' = ```
+			
+			AVERAGE(project_performance[timeline_variance])
+			
+			```
+		lineageTag: 46f6fd83-487f-4787-a68f-7f71683ee1dc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Resource Utilization Score' = ```
+			
+			AVERAGE(project_performance[resource_utilization_score])
+			
+			```
+		lineageTag: 6332b9cc-2f58-483b-a62e-104f03dff01c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Team Productivity Score' = ```
+			
+			AVERAGE(project_performance[team_productivity_score])
+			
+			```
+		lineageTag: 4994faec-fa84-4302-972e-b5aa17fcd3d5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Tasks' = ```
+			
+			COUNT(project_tasks[task_id])
+			
+			```
+		formatString: 0
+		lineageTag: 35be026d-75ff-4342-91cd-31153a6ffc99
+
+	measure 'Completed Tasks' = ```
+			
+			CALCULATE(
+			COUNT(project_tasks[task_id]),
+			project_tasks[task_status]="Done"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: c5e4e4f0-7fd5-4f39-9391-32860b1a55a9
+
+	measure 'In Progress Tasks' = ```
+			
+			CALCULATE(
+			COUNT(project_tasks[task_id]),
+			project_tasks[task_status]="In Progress"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 27cdebdf-be46-4037-b375-efeee1ea5486
+
+	measure 'Blocked Tasks' = ```
+			
+			CALCULATE(
+			COUNT(project_tasks[task_id]),
+			project_tasks[task_status]="Blocked"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 55442c97-e921-4b39-aebd-b5e55984a20e
+
+	measure 'Task Completion Rate' = ```
+			
+			DIVIDE(
+			    [Completed Tasks],
+			    [Total Tasks],
+			    0
+			) *100
+			
+			```
+		lineageTag: d5d623d2-1d78-42f0-bc40-cce09f37b775
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Estimated Hours' = ```
+			
+			AVERAGE(project_tasks[estimated_hours])
+			
+			```
+		lineageTag: db883700-e63b-49d0-918a-78e758788d04
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Actual Hours' = ```
+			
+			AVERAGE(project_tasks[actual_hours])
+			
+			```
+		lineageTag: a92e1eeb-6f66-4629-a9b7-09a4e9043219
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Resources Allocated' = ```
+			
+			DISTINCTCOUNT(project_team_allocation[employee_id])
+			
+			```
+		formatString: 0
+		lineageTag: 0af72e4e-0360-471a-bbde-1c98eea69d55
+
+	measure 'Average Allocation %' = ```
+			
+			DIVIDE(
+			    AVERAGE(project_team_allocation[allocation_percentage]),
+			    100
+			)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 940ca9f6-eb75-4fd8-923f-afedc105cf61
+
+	measure 'Average Utilization %' = ```
+			
+			AVERAGE(project_team_allocation[utilization_percentage])
+			
+			```
+		lineageTag: 035232a5-4912-4f99-a977-55db00bb5550
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Billable Resources' = ```
+			
+			CALCULATE(
+			COUNT(project_team_allocation[employee_id]),
+			project_team_allocation[billable_status]="Billable"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 0f861725-d496-42cd-9b2e-26bc48bff4dd
+
+	measure 'Non Billable Resources' = ```
+			
+			CALCULATE(
+			COUNT(project_team_allocation[employee_id]),
+			project_team_allocation[billable_status]="Non-Billable"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: bc3bff85-1033-48fe-bcf3-5267ef8d2ca2
+
+	measure 'Total Milestones' = ```
+			
+			COUNT(project_milestones[milestone_id])
+			
+			```
+		formatString: 0
+		lineageTag: 278fb103-d193-42de-9521-9906c8f3c361
+
+	measure 'Achieved Milestones' = ```
+			
+			CALCULATE(
+			COUNT(project_milestones[milestone_id]),
+			project_milestones[milestone_status]="Achieved"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: b463fe26-7a19-40de-8394-075cf0fce74c
+
+	measure 'Delayed Milestones' = ```
+			
+			CALCULATE(
+			COUNT(project_milestones[milestone_id]),
+			project_milestones[milestone_status]="Delayed"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e2f34afe-4068-45dc-b1a7-ed8f647212ec
+
+	measure 'Milestone Achievement Rate' = ```
+			
+			DIVIDE(
+			    [Achieved Milestones],
+			    [Total Milestones],
+			    0
+			) *100
+			
+			```
+		lineageTag: 3073c91d-74df-4910-a391-6422b0a7c462
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Risks' = ```
+			
+			COUNT(project_risks[risk_id])
+			
+			```
+		formatString: 0
+		lineageTag: 8b2b634b-4f0a-466c-b77d-ab924a8a2e68
+
+	measure 'Open Risks' = ```
+			
+			CALCULATE(
+			COUNT(project_risks[risk_id]),
+			project_risks[risk_status]="Open"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ec06b4b4-84af-4db4-b911-75be12abac41
+
+	measure 'Escalated Risks' = ```
+			
+			CALCULATE(
+			COUNT(project_risks[risk_id]),
+			project_risks[risk_status]="Escalated"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 809f6496-6084-4f65-b3aa-eba435b02436
+
+	measure 'Closed Risks' = ```
+			
+			CALCULATE(
+			COUNT(project_risks[risk_id]),
+			project_risks[risk_status]="Closed"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 43233e37-e42f-4874-973b-41a9c9996034
+
+	measure 'Average Risk Severity' = ```
+			
+			AVERAGE(project_risks[risk_severity_score])
+			
+			```
+		lineageTag: 1337da72-982c-4019-937c-4d843fc22c30
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Capability' =
+			
+			SELECTEDVALUE(employee_master[capability])
+		lineageTag: 0008eebd-cb4e-4003-be4e-52ad67c81419
+
+	measure 'Selected Employee ID' =
+			
+			SELECTEDVALUE(employee_master[employee_id])
+		lineageTag: 6a4ea8a4-5903-440e-9c73-de361702bf3c
+
+	measure 'Selected Employee Name' =
+			
+			SELECTEDVALUE(employee_master[employee_name])
+		lineageTag: 92a354e8-5d96-4b70-aa4b-d01f89ad5201
+
+	measure 'Selected Designation' =
+			
+			SELECTEDVALUE(employee_master[designation])
+		lineageTag: 94bb54ca-c25d-463c-9818-be08e7e3e886
+
+	measure 'Selected Status' =
+			
+			SELECTEDVALUE(employee_master[employment_status])
+		lineageTag: d3a76284-f08d-4909-8620-e6f59d5665e6
+
+	column Column1
+		dataType: string
+		lineageTag: 94574cad-82ed-400a-8042-48acb35d9af0
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Measures (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

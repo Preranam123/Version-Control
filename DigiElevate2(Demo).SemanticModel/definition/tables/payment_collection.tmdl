@@ -1,0 +1,122 @@
+table payment_collection
+	lineageTag: 92240c69-86d5-4a33-95a6-b3d666835e10
+
+	column collection_id
+		dataType: string
+		lineageTag: 8e8d9038-55f4-45ef-a76a-8ae69e29e5bc
+		summarizeBy: none
+		sourceColumn: collection_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_id
+		dataType: string
+		lineageTag: 8038925f-7b66-43d7-8493-feb6586cd674
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 706407bb-822f-4522-aed5-963d4eac55ce
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 62165f15-8deb-4d87-a0ca-9ae841451a47
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e47cdd6e-7e00-46a1-b5d3-d49044d3234d
+		summarizeBy: none
+		sourceColumn: payment_date
+
+		variation Variation
+			isDefault
+			relationship: 84871c98-4b6e-4cf9-8a27-37eb885770af
+			defaultHierarchy: LocalDateTable_c8b5bab5-07b8-40f9-8d79-52efcbc4e7a4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column payment_amount
+		dataType: double
+		lineageTag: dd2a4a5b-62be-4a8d-8350-70a6d496851b
+		summarizeBy: sum
+		sourceColumn: payment_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_mode
+		dataType: string
+		lineageTag: ddda71bf-2c37-4d8a-a6bf-e592698dac18
+		summarizeBy: none
+		sourceColumn: payment_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_status
+		dataType: string
+		lineageTag: f44c397d-e4fa-460d-9bc7-af55ffad9860
+		summarizeBy: none
+		sourceColumn: payment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column outstanding_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d6fecde-1be2-43d9-bac1-421a33235fd7
+		summarizeBy: sum
+		sourceColumn: outstanding_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column collection_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d398f1d-884b-4f3e-b877-e36b1db60bb6
+		summarizeBy: sum
+		sourceColumn: collection_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column collector_name
+		dataType: string
+		lineageTag: e6c45a72-c467-4d49-b1e2-f47c428f1b5e
+		summarizeBy: none
+		sourceColumn: collector_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column remarks
+		dataType: string
+		lineageTag: 1d1bbecb-948a-4296-a7fe-7ce2bdcfe7a3
+		summarizeBy: none
+		sourceColumn: remarks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition payment_collection = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    payment_collection_Table = DigiElevate2_Schema{[Name="payment_collection",Kind="Table"]}[Data]
+				in
+				    payment_collection_Table
+

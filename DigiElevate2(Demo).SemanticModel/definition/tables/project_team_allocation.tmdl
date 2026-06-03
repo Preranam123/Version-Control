@@ -1,0 +1,213 @@
+table project_team_allocation
+	lineageTag: c486e998-3940-4b10-8cae-38018125da54
+
+	column allocation_id
+		dataType: string
+		lineageTag: 576b49ea-4378-415a-9cbe-0f4e5bfca4d0
+		summarizeBy: none
+		sourceColumn: allocation_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 826a733c-bb58-4ffe-9d90-f74f91b75758
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: c540aaf6-8a7c-41cb-8754-8f8283fc0419
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: ce2c5944-a777-4fd7-bda5-7b83c0e17718
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_designation
+		dataType: string
+		lineageTag: 4f0637b7-19b0-40d9-a5ee-11f3bbc4ab86
+		summarizeBy: none
+		sourceColumn: employee_designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: 79476d78-7177-4576-95b8-e9582d5057ac
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_id
+		dataType: string
+		lineageTag: 0f351b07-d7b9-4d33-8694-a1ed2708fb6c
+		summarizeBy: none
+		sourceColumn: project_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_name
+		dataType: string
+		lineageTag: c0aabd19-92e7-4b2d-8c70-3b754f92a351
+		summarizeBy: none
+		sourceColumn: project_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column reporting_manager_id
+		dataType: string
+		lineageTag: 6361ae75-4da9-4506-9c27-49580792943b
+		summarizeBy: none
+		sourceColumn: reporting_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column reporting_manager_name
+		dataType: string
+		lineageTag: f3a38afb-1383-461d-99f3-f1b43eeb2978
+		summarizeBy: none
+		sourceColumn: reporting_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: string
+		lineageTag: db76dc0e-a0ea-4f0b-b0c9-e17f37934e07
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_size
+		dataType: int64
+		formatString: 0
+		lineageTag: de53c374-32a0-41d9-9c22-fd1c7856be3d
+		summarizeBy: sum
+		sourceColumn: team_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_on_project
+		dataType: string
+		lineageTag: 461b5964-7df3-4f76-96bb-bf7359a7008f
+		summarizeBy: none
+		sourceColumn: role_on_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aff41dd6-68e7-4229-a9fa-43c32b19d7be
+		summarizeBy: none
+		sourceColumn: allocation_start_date
+
+		variation Variation
+			isDefault
+			relationship: 57dfff15-a633-4a9e-8fd2-42056872c24f
+			defaultHierarchy: LocalDateTable_5161aff0-5537-42bd-9688-ffab0ac865f2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 98911938-bfc5-4142-be53-1f3cb096de48
+		summarizeBy: none
+		sourceColumn: allocation_end_date
+
+		variation Variation
+			isDefault
+			relationship: 36e7fb25-e2d2-4acd-8d1a-1721f1afba07
+			defaultHierarchy: LocalDateTable_bf571c54-d821-405a-8aad-8c3b11cfd123.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 87113c8f-0958-4af2-96c7-d0aa39154415
+		summarizeBy: sum
+		sourceColumn: allocation_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 07eac673-1d8e-4dc5-9be2-8eadbfd9225b
+		summarizeBy: sum
+		sourceColumn: utilization_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column billable_rate
+		dataType: int64
+		formatString: 0
+		lineageTag: 45234da8-85db-4cd2-a6a7-b44784822cc3
+		summarizeBy: sum
+		sourceColumn: billable_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column billable_status
+		dataType: string
+		lineageTag: 04f7ee55-4699-46d6-9985-e0a533ec2838
+		summarizeBy: none
+		sourceColumn: billable_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_to_company
+		dataType: int64
+		formatString: 0
+		lineageTag: a6b1feff-913c-4e21-9967-d5c4f8938df2
+		summarizeBy: sum
+		sourceColumn: cost_to_company
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_mode
+		dataType: string
+		lineageTag: eab3b79c-aacc-4fbb-a47d-5684346e1c19
+		summarizeBy: none
+		sourceColumn: work_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_status
+		dataType: string
+		lineageTag: be71d195-3978-4ef9-9a93-3a62e9fe05ac
+		summarizeBy: none
+		sourceColumn: employee_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_team_allocation = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_team_allocation_Table = DigiElevate2_Schema{[Name="project_team_allocation",Kind="Table"]}[Data]
+				in
+				    project_team_allocation_Table
+
+	annotation PBI_ResultType = Table
+

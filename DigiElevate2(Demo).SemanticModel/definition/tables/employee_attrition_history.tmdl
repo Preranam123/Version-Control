@@ -1,0 +1,160 @@
+table employee_attrition_history
+	lineageTag: c7024ced-ebcf-4d9f-a507-5bde564762eb
+
+	column hist_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cdf6e72f-813d-4312-91ef-52f210270215
+		summarizeBy: sum
+		sourceColumn: hist_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column emp_id
+		dataType: string
+		lineageTag: a10cdab2-d86d-4c78-b9ed-423bd45471be
+		summarizeBy: none
+		sourceColumn: emp_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column capability
+		dataType: string
+		lineageTag: 76888f3a-c472-4af6-b49e-d66f173391c5
+		summarizeBy: none
+		sourceColumn: capability
+
+		annotation SummarizationSetBy = Automatic
+
+	column dept_id
+		dataType: string
+		lineageTag: a562151e-65aa-4aad-9287-3538e3b26332
+		summarizeBy: none
+		sourceColumn: dept_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_title
+		dataType: string
+		lineageTag: 3937a558-c693-4fc5-8899-673558ccaccc
+		summarizeBy: none
+		sourceColumn: role_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_id
+		dataType: string
+		lineageTag: 320bc264-7dc5-4ce5-af5d-37960b9ceb45
+		summarizeBy: none
+		sourceColumn: role_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_id
+		dataType: string
+		lineageTag: 8b414f90-4523-47b5-a753-0efbec27c9b2
+		summarizeBy: none
+		sourceColumn: manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_type
+		dataType: string
+		lineageTag: 990ea7b3-d685-45bb-a0d2-80abee8d861e
+		summarizeBy: none
+		sourceColumn: employment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_salary
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e042529-916b-4a0a-86d2-019952d52d6a
+		summarizeBy: sum
+		sourceColumn: base_salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: a53c92de-40e2-45d8-8f50-a0d9084dfa36
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: 2294d868-3a65-4674-87bd-c200ca4db401
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 3b38c945-3b9e-40cd-a558-8a7c7171f752
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 2bab2fd8-18e4-45ac-9b17-dfc34388b17e
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column valid_from
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4ec8b51f-1625-4324-afb7-dea5e2e2dd7a
+		summarizeBy: none
+		sourceColumn: valid_from
+
+		variation Variation
+			isDefault
+			relationship: f7e704ee-00ed-4dc9-84e5-8bb94a353884
+			defaultHierarchy: LocalDateTable_e6ec33a7-4752-44e5-9c0e-0894f806fbc6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valid_to
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 36d4b202-47a3-46d1-9933-0b335de89163
+		summarizeBy: none
+		sourceColumn: valid_to
+
+		variation Variation
+			isDefault
+			relationship: 8075ad02-5f54-499d-bae2-62529b206acc
+			defaultHierarchy: LocalDateTable_f9f449bc-60cc-4b71-a59f-0676fa467f9a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column change_reason
+		dataType: string
+		lineageTag: 87d1940d-98b4-438a-96e7-59f0cfb1f7a0
+		summarizeBy: none
+		sourceColumn: change_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_attrition_history = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    employee_attrition_history_Table = DigiElevate2_Schema{[Name="employee_attrition_history",Kind="Table"]}[Data]
+				in
+				    employee_attrition_history_Table
+

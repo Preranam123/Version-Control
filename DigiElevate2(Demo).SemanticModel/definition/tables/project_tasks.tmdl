@@ -1,0 +1,155 @@
+table project_tasks
+	lineageTag: ee1c040a-2b41-4648-8187-524e6dc7239f
+
+	column task_id
+		dataType: string
+		lineageTag: bae32dcf-4f71-48f3-9c75-484e2fed3dbd
+		summarizeBy: none
+		sourceColumn: task_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: c53cfee9-a753-4691-808f-3172d4d21e19
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column phase_id
+		dataType: string
+		lineageTag: 54d71042-813e-4fab-806c-f1506ae10244
+		summarizeBy: none
+		sourceColumn: phase_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column assignee_id
+		dataType: string
+		lineageTag: c07cef3a-da51-47a7-9537-a7bf02496c07
+		summarizeBy: none
+		sourceColumn: assignee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: 2e4d8609-4596-4403-9604-a5446414a7ab
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_title
+		dataType: string
+		lineageTag: d4ac606e-9a3f-41d2-90f4-0ffe7f45a279
+		summarizeBy: none
+		sourceColumn: task_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_category
+		dataType: string
+		lineageTag: ba36909a-386f-4762-b8d0-b79cc748a2ce
+		summarizeBy: none
+		sourceColumn: task_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_status
+		dataType: string
+		lineageTag: 15478de8-42bc-4b52-bb1b-c43406ff87b4
+		summarizeBy: none
+		sourceColumn: task_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 91528a09-f227-4f38-93a3-b9f2f5298768
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: e1eae575-e9ee-404b-9688-0efee68e6865
+		summarizeBy: sum
+		sourceColumn: estimated_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: b85e6098-beaa-42a6-92fd-2f9dda6e29d3
+		summarizeBy: sum
+		sourceColumn: actual_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7096d0f1-8900-4ea3-bab6-d710551bb5d5
+		summarizeBy: none
+		sourceColumn: due_date
+
+		variation Variation
+			isDefault
+			relationship: e9ee51ba-0a36-4844-8b59-61d1b82ea738
+			defaultHierarchy: LocalDateTable_40667c75-c71a-4852-b0c2-0d97a63614ff.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column completed_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 287d0b78-991f-4e44-a1ae-a7ff73627224
+		summarizeBy: none
+		sourceColumn: completed_date
+
+		variation Variation
+			isDefault
+			relationship: 31880fa9-c0ba-4fe8-907a-75e058a394cd
+			defaultHierarchy: LocalDateTable_25fd7997-e9e0-465f-ab8c-6a5e194e83ef.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column rework_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4e169c69-77d0-416e-8cab-0ad66976a3e1
+		summarizeBy: none
+		sourceColumn: rework_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocker_reason
+		dataType: string
+		lineageTag: e6b8d2df-569b-43a9-851b-daa267476ca1
+		summarizeBy: none
+		sourceColumn: blocker_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_tasks = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_tasks_Table = DigiElevate2_Schema{[Name="project_tasks",Kind="Table"]}[Data]
+				in
+				    project_tasks_Table
+
+	annotation PBI_ResultType = Table
+

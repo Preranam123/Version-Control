@@ -1,0 +1,154 @@
+table profitability_analysis
+	lineageTag: b3ba7e2e-3d9f-464d-8f67-144a6dcae919
+
+	column analysis_id
+		dataType: string
+		lineageTag: f27b5d05-dfc0-4d27-9f58-294cc896c27e
+		summarizeBy: none
+		sourceColumn: analysis_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 6e62a7c1-2e18-4702-90ae-e9db56f1e4b2
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: e8400f2b-f9df-4a3a-a2f0-7c511d2c4674
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_id
+		dataType: string
+		lineageTag: f5e8932f-e9f7-4d72-a4c5-169559034fdb
+		summarizeBy: none
+		sourceColumn: revenue_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 713bbccd-1900-46f0-ac4c-ebbafcdead8f
+		summarizeBy: sum
+		sourceColumn: gross_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: f0d7b54a-8460-4020-95a8-bad7f55c2333
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_profit
+		dataType: double
+		lineageTag: 841d9a6a-2509-4551-a018-f09416c6ac79
+		summarizeBy: sum
+		sourceColumn: net_profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit_margin_percentage
+		dataType: double
+		lineageTag: 758b47f2-7a2e-40ee-a81b-67a19d98a598
+		summarizeBy: sum
+		sourceColumn: profit_margin_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column resource_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: e4926a26-6996-4564-8e2a-033b1cc4b6d2
+		summarizeBy: sum
+		sourceColumn: resource_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column operational_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: ee579300-a301-4671-9f68-827c443df2e4
+		summarizeBy: sum
+		sourceColumn: operational_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_cost
+		dataType: double
+		lineageTag: 720c824d-c3b1-4ddc-9e6a-3024dcae9435
+		summarizeBy: sum
+		sourceColumn: tax_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: d19b6b75-755a-495e-b851-0e07478d9d65
+		summarizeBy: sum
+		sourceColumn: discount_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column profitability_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 66beffd7-6ed6-46d6-a204-c1246c3d1c93
+		summarizeBy: sum
+		sourceColumn: profitability_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column profitability_band
+		dataType: string
+		lineageTag: 8fbb4d55-df8f-40b4-bc47-b0ed9064742e
+		summarizeBy: none
+		sourceColumn: profitability_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column analysis_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8079385a-4d16-45aa-8634-26fd599a0989
+		summarizeBy: none
+		sourceColumn: analysis_date
+
+		variation Variation
+			isDefault
+			relationship: 73d5b60a-f378-4d8a-afe8-e8ca88670e87
+			defaultHierarchy: LocalDateTable_9899173e-60fc-4de2-ae3f-5453baeeb69c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition profitability_analysis = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    profitability_analysis_Table = DigiElevate2_Schema{[Name="profitability_analysis",Kind="Table"]}[Data]
+				in
+				    profitability_analysis_Table
+

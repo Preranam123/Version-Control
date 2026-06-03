@@ -1,0 +1,93 @@
+table client_health
+	lineageTag: b4f0b05a-db68-4097-a2f3-5e16ad95425d
+
+	column client_id
+		dataType: string
+		lineageTag: 3137192e-1ed2-499d-8fce-8dc5b8637a23
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column health_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 95bcd282-7446-4f5c-90ba-4fe8170f83cf
+		summarizeBy: sum
+		sourceColumn: health_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_risk_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 38b6275a-0692-4033-8e54-5de88d392904
+		summarizeBy: sum
+		sourceColumn: churn_risk_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column engagement_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e7b92f2-06e4-40db-b016-eaef3ad77fb8
+		summarizeBy: sum
+		sourceColumn: engagement_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column satisfaction_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 232b361b-1951-4096-90a8-6b4d51720570
+		summarizeBy: sum
+		sourceColumn: satisfaction_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column support_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 0306eb87-0752-4069-a1ff-5ac185521839
+		summarizeBy: sum
+		sourceColumn: support_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_probability
+		dataType: int64
+		formatString: 0
+		lineageTag: 709cdfae-0586-4604-a487-827a7fe1bff8
+		summarizeBy: sum
+		sourceColumn: renewal_probability
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_level
+		dataType: string
+		lineageTag: 71764bf6-a979-4475-bd3e-8f3c461f80b2
+		summarizeBy: none
+		sourceColumn: risk_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column expansion_opportunity_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c414e2d8-593c-4ea0-bddf-6f0ecb604968
+		summarizeBy: none
+		sourceColumn: expansion_opportunity_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_health = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_health_Table = DigiElevate2_Schema{[Name="client_health",Kind="Table"]}[Data]
+				in
+				    client_health_Table
+

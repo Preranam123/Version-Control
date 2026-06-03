@@ -1,0 +1,97 @@
+table client_satisfaction
+	lineageTag: 29468e4f-d237-42a9-a784-d05b6d47d4f4
+
+	column survey_id
+		dataType: string
+		lineageTag: e8e97e35-917a-4e3f-8625-b550ac34be97
+		summarizeBy: none
+		sourceColumn: survey_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 603686c0-f7e9-48e2-addd-dc5e1d71eb21
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_promoter_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 03f78145-4abd-4cac-bea5-32458aed212e
+		summarizeBy: sum
+		sourceColumn: net_promoter_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_category
+		dataType: string
+		lineageTag: 7415462b-5203-4cd9-b930-98e4329835ca
+		summarizeBy: none
+		sourceColumn: customer_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column feedback_comment
+		dataType: string
+		lineageTag: d3c088fb-23d9-4648-8050-8a2680ec0e65
+		summarizeBy: none
+		sourceColumn: feedback_comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_quality_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c720b96-8b61-44c8-89ca-671d0ca5e38d
+		summarizeBy: sum
+		sourceColumn: service_quality_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_intent
+		dataType: string
+		lineageTag: d61b8d18-09be-4ddc-ba63-a3f349609d8e
+		summarizeBy: none
+		sourceColumn: renewal_intent
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommendation_likelihood
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b51d46b-00fd-4449-aa2a-1255e35d6820
+		summarizeBy: sum
+		sourceColumn: recommendation_likelihood
+
+		annotation SummarizationSetBy = Automatic
+
+	column survey_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8569cd05-2671-44ff-80ca-8ccaba85ccac
+		summarizeBy: none
+		sourceColumn: survey_date
+
+		variation Variation
+			isDefault
+			relationship: 3f1afeca-5b3d-4444-b57a-39aef6192b47
+			defaultHierarchy: LocalDateTable_ffec0a3b-9e10-47c7-bc8c-8713670f6e32.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition client_satisfaction = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_satisfaction_Table = DigiElevate2_Schema{[Name="client_satisfaction",Kind="Table"]}[Data]
+				in
+				    client_satisfaction_Table
+

@@ -1,0 +1,114 @@
+table project_risks
+	lineageTag: b4f1a6a5-b5c7-4ef8-9d6c-f0afab5dd90b
+
+	column risk_id
+		dataType: string
+		lineageTag: 5db3df8a-381f-48a9-94e7-847419989a2a
+		summarizeBy: none
+		sourceColumn: risk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: ca05c3c1-ea09-40d5-9651-6d6c9eefffaf
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_description
+		dataType: string
+		lineageTag: bad9197d-28a1-4e26-8516-3e52b6e320cc
+		summarizeBy: none
+		sourceColumn: risk_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column probability
+		dataType: string
+		lineageTag: 8d7c8300-21c8-4246-8976-97c91d2be7d1
+		summarizeBy: none
+		sourceColumn: probability
+
+		annotation SummarizationSetBy = Automatic
+
+	column impact
+		dataType: string
+		lineageTag: 305dc1a1-4b63-4dcc-a608-b6d09c51a2fc
+		summarizeBy: none
+		sourceColumn: impact
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_severity_score
+		dataType: int64
+		formatString: 0
+		lineageTag: be94a357-b339-420a-8b49-46b470fb56e2
+		summarizeBy: sum
+		sourceColumn: risk_severity_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_status
+		dataType: string
+		lineageTag: ad892015-4908-4ea4-8f16-e4bdbb3d0ac0
+		summarizeBy: none
+		sourceColumn: risk_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column escalation_level
+		dataType: string
+		lineageTag: 2963f81f-4126-4774-a3fb-71f194f5889b
+		summarizeBy: none
+		sourceColumn: escalation_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column mitigation_plan
+		dataType: string
+		lineageTag: f6cb528a-6a6d-4dcf-82ef-cf75415a2ffe
+		summarizeBy: none
+		sourceColumn: mitigation_plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolution_timeline
+		dataType: int64
+		formatString: 0
+		lineageTag: d99f6bde-64f5-47df-8e20-847c5f353198
+		summarizeBy: sum
+		sourceColumn: resolution_timeline
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_id
+		dataType: string
+		lineageTag: bdcd7d9e-e8ed-434e-98a6-2de3ac5124f7
+		summarizeBy: none
+		sourceColumn: owner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		lineageTag: 3b7bb23d-587b-400d-a095-6fc1698a8f24
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_risks = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_risks_Table = DigiElevate2_Schema{[Name="project_risks",Kind="Table"]}[Data]
+				in
+				    project_risks_Table
+
+	annotation PBI_ResultType = Table
+

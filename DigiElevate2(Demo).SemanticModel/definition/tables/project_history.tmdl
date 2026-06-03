@@ -1,0 +1,181 @@
+table project_history
+	lineageTag: ab8dd0b1-5714-45ac-a878-125570d0f710
+
+	column historical_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 69a35080-2bfb-4310-92e3-935b66329bca
+		summarizeBy: none
+		sourceColumn: historical_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: a16e6009-83c2-40b3-9450-06261b2da005
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: 28102895-8229-4caa-9bd8-cff7d69c4e28
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_status
+		dataType: string
+		lineageTag: 5a419fc0-1987-40c1-bded-7595eec2b9f8
+		summarizeBy: none
+		sourceColumn: project_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ece256e-dc6b-4901-9656-28d8ed68c5fb
+		summarizeBy: sum
+		sourceColumn: budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: b4fb8a83-5162-4303-9c1b-1bebd8986399
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_generated
+		dataType: int64
+		formatString: 0
+		lineageTag: be6c552e-94f0-4687-a530-db2cbe111a50
+		summarizeBy: sum
+		sourceColumn: revenue_generated
+
+		annotation SummarizationSetBy = Automatic
+
+	column profit_margin
+		dataType: double
+		lineageTag: 9f1c8827-d445-4c3c-b10d-e78e456e9dc2
+		summarizeBy: sum
+		sourceColumn: profit_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column priority
+		dataType: string
+		lineageTag: f0603b61-70f3-4552-8a6d-0b99bc38567e
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_id
+		dataType: string
+		lineageTag: 3f36e5ad-5e2f-43ea-8768-fd760bf16790
+		summarizeBy: none
+		sourceColumn: project_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_name
+		dataType: string
+		lineageTag: 53824638-2632-4b27-a44b-fb4d5b1a9b44
+		summarizeBy: none
+		sourceColumn: project_manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 30c940b8-1052-408f-a704-7163d3f5a092
+		summarizeBy: none
+		sourceColumn: end_date
+
+		variation Variation
+			isDefault
+			relationship: 8e172a7c-21f3-430a-8f8f-98db3a894917
+			defaultHierarchy: LocalDateTable_556dbb7e-2208-4502-9a16-97d12d9c16af.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valid_from
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e2d0e4ab-35d0-4409-a3a5-557234a1069b
+		summarizeBy: none
+		sourceColumn: valid_from
+
+		variation Variation
+			isDefault
+			relationship: 2e8fcc83-404e-4f1b-8b07-ed6bf8232a92
+			defaultHierarchy: LocalDateTable_336f1fd7-e4c5-4e8f-900b-423fa61335a6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valid_to
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3139dd48-a9a1-4dbb-9434-8d9dee726f31
+		summarizeBy: none
+		sourceColumn: valid_to
+
+		variation Variation
+			isDefault
+			relationship: b6312115-0db1-4cba-a2e2-7eaf00b9e5ed
+			defaultHierarchy: LocalDateTable_93a040fc-7c44-4a12-ae7a-5ee4eb7633f1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column current_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 427e32e5-c819-45b7-8ca2-527828482f87
+		summarizeBy: none
+		sourceColumn: current_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column change_reason
+		dataType: string
+		lineageTag: 1adff6fb-b016-475e-b68b-90200c118e46
+		summarizeBy: none
+		sourceColumn: change_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column record_created_at
+		dataType: string
+		lineageTag: 9c0b1aa1-6b95-444f-9d6c-989f77c0d7f4
+		summarizeBy: none
+		sourceColumn: record_created_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_history = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_history_Table = DigiElevate2_Schema{[Name="project_history",Kind="Table"]}[Data]
+				in
+				    project_history_Table
+

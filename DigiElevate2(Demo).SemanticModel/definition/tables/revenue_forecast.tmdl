@@ -1,0 +1,108 @@
+table revenue_forecast
+	lineageTag: 0727f790-9beb-448e-a5e3-5ec9e0b78ce8
+
+	column forecast_id
+		dataType: string
+		lineageTag: 5149cd4f-ab82-4090-9c6f-df30e1ec7d10
+		summarizeBy: none
+		sourceColumn: forecast_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 97c57ea5-c014-4161-8d24-fb1947fbde66
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 0d1221aa-9de5-452e-89bb-cc1951894ce2
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_period
+		dataType: string
+		lineageTag: 570bdb03-9211-4a75-8596-e9a745c9daae
+		summarizeBy: none
+		sourceColumn: forecast_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column predicted_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: fa342f56-3b54-4f88-a831-a5f5c7162f8a
+		summarizeBy: sum
+		sourceColumn: predicted_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_growth_percentage
+		dataType: double
+		lineageTag: ba8eb316-b136-4641-a4fc-5cc61737a6a1
+		summarizeBy: sum
+		sourceColumn: expected_growth_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_confidence_score
+		dataType: int64
+		formatString: 0
+		lineageTag: fe6221a1-1a69-45c0-8b88-0721a30d2907
+		summarizeBy: sum
+		sourceColumn: forecast_confidence_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_category
+		dataType: string
+		lineageTag: c81b4212-6903-4c0e-8189-199c7992c719
+		summarizeBy: none
+		sourceColumn: forecast_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_created_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8ad3cbd0-77b2-421b-a608-8fba18b4d29e
+		summarizeBy: none
+		sourceColumn: forecast_created_date
+
+		variation Variation
+			isDefault
+			relationship: f3e94a74-26ec-4de3-9580-0ea6aeee618b
+			defaultHierarchy: LocalDateTable_73689bb4-b603-4a77-a212-c0fefcb70fed.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column forecast_owner
+		dataType: string
+		lineageTag: eac6f39f-c2d5-4b28-b905-97deab4b07f8
+		summarizeBy: none
+		sourceColumn: forecast_owner
+
+		annotation SummarizationSetBy = Automatic
+
+	partition revenue_forecast = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    revenue_forecast_Table = DigiElevate2_Schema{[Name="revenue_forecast",Kind="Table"]}[Data]
+				in
+				    revenue_forecast_Table
+
+	annotation PBI_ResultType = Table
+

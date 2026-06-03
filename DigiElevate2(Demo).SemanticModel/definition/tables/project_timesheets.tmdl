@@ -1,0 +1,117 @@
+table project_timesheets
+	lineageTag: 604400d5-3017-4c28-8045-f6345afbb291
+
+	column timesheet_id
+		dataType: string
+		lineageTag: 03b21cff-acce-4fd9-91bc-6aca0e377d41
+		summarizeBy: none
+		sourceColumn: timesheet_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: b6574893-8881-42c9-bcb3-e86ddc13eb3d
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: 2d8526e9-732e-4b89-a04e-7e2da02f7e01
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 790a7752-9b5a-4c29-97cb-c351091e2366
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_id
+		dataType: string
+		lineageTag: 82ee0559-acd3-4f89-a883-034507076a24
+		summarizeBy: none
+		sourceColumn: task_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 30e27fc7-663d-4c6c-b977-4a73ec10ee8b
+		summarizeBy: none
+		sourceColumn: work_date
+
+		variation Variation
+			isDefault
+			relationship: e20e64d6-6c04-4270-81fc-4ad37f0e2687
+			defaultHierarchy: LocalDateTable_48fcf5e1-f8fb-4bab-91d5-b78f9de9f80a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hours_worked
+		dataType: double
+		lineageTag: f8ce181b-9a63-4049-9bfd-4c5880d724d9
+		summarizeBy: sum
+		sourceColumn: hours_worked
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column overtime_hours
+		dataType: double
+		lineageTag: 3cac8c3a-97da-4b11-9b79-e8158de4f6ea
+		summarizeBy: sum
+		sourceColumn: overtime_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column billable_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cf55ef50-d200-49a0-942e-7a892ced2fcb
+		summarizeBy: none
+		sourceColumn: billable_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column approved_by
+		dataType: string
+		lineageTag: 27f3ee6c-8ea2-422c-82e1-2b165d93ae65
+		summarizeBy: none
+		sourceColumn: approved_by
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_notes
+		dataType: string
+		lineageTag: c5214972-0d90-44b5-9db0-ce63795afef2
+		summarizeBy: none
+		sourceColumn: work_notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_timesheets = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_timesheets_Table = DigiElevate2_Schema{[Name="project_timesheets",Kind="Table"]}[Data]
+				in
+				    project_timesheets_Table
+
+	annotation PBI_ResultType = Table
+

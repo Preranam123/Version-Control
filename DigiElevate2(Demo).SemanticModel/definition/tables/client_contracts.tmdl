@@ -1,0 +1,168 @@
+table client_contracts
+	lineageTag: d50274c3-8a37-41be-b708-d9453ac38dbc
+
+	column contract_id
+		dataType: string
+		lineageTag: 84c905d6-73a5-47a5-aac9-ae1db8677a50
+		summarizeBy: none
+		sourceColumn: contract_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 512215c7-6e3f-4bfa-888f-c6e93a4a6d51
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_type
+		dataType: string
+		lineageTag: 502598f2-7e18-4999-8596-6f6bd20267f3
+		summarizeBy: none
+		sourceColumn: contract_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: 0154300c-871f-4159-8cfb-0787690eccd6
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ded5ce57-cbc2-4adf-b15e-26297b4281c5
+		summarizeBy: none
+		sourceColumn: project_start_date
+
+		variation Variation
+			isDefault
+			relationship: cba05e58-9dce-4edf-bdc6-823b073f23ad
+			defaultHierarchy: LocalDateTable_83de5a73-4688-44be-a7a7-b4ab25cae35f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column project_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dd3eedd9-ae3c-4ff8-8fe7-a6a3f0e9b156
+		summarizeBy: none
+		sourceColumn: project_end_date
+
+		variation Variation
+			isDefault
+			relationship: d85abe63-13a4-4647-90db-bbebf1b8ecc6
+			defaultHierarchy: LocalDateTable_7b594904-d819-4e17-a3ec-0f2859fb9303.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column contract_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ff518a92-b04b-4ca4-b8a0-a8bb9f2c5ca3
+		summarizeBy: none
+		sourceColumn: contract_start_date
+
+		variation Variation
+			isDefault
+			relationship: e1d60ec6-f84b-440a-94a4-7bd262c7dd07
+			defaultHierarchy: LocalDateTable_af73b791-1a9f-435f-bde4-56a9a4912364.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column contract_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a17a60ad-bccf-4ad3-8031-2b4acc8cda7d
+		summarizeBy: none
+		sourceColumn: contract_end_date
+
+		variation Variation
+			isDefault
+			relationship: 82a9b112-a78d-44bc-aa72-a36d7d8772ed
+			defaultHierarchy: LocalDateTable_5765393c-b8f6-474f-8b8c-4f3982e23cfc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_contract_value
+		dataType: int64
+		formatString: 0
+		lineageTag: 88dcd645-7283-42ae-9bd5-8373a2682b60
+		summarizeBy: sum
+		sourceColumn: total_contract_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d5927f96-6b9f-4da6-820c-e6f1eb210f9c
+		summarizeBy: none
+		sourceColumn: renewal_date
+
+		variation Variation
+			isDefault
+			relationship: 49784a11-aa3d-49b9-aab7-74efc4403d6c
+			defaultHierarchy: LocalDateTable_f096a633-3156-4108-bf5d-8464c184baf6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column auto_renew_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a5c06578-76da-4227-b280-d8627b02d982
+		summarizeBy: none
+		sourceColumn: auto_renew_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_status
+		dataType: string
+		lineageTag: 168582c2-892e-4d0f-af9a-a274a7733152
+		summarizeBy: none
+		sourceColumn: payment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_frequency
+		dataType: string
+		lineageTag: 8fe97183-4be9-45bc-b0f2-60c6d88c5725
+		summarizeBy: none
+		sourceColumn: billing_frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_status
+		dataType: string
+		lineageTag: 0dae8002-c4ad-4e3b-a5c4-c52fb811407e
+		summarizeBy: none
+		sourceColumn: contract_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_contracts = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_contracts_Table = DigiElevate2_Schema{[Name="client_contracts",Kind="Table"]}[Data]
+				in
+				    client_contracts_Table
+

@@ -1,0 +1,140 @@
+table invoice_master
+	lineageTag: ab0a80d4-8678-4b7a-b3e3-9d5d7d4c0e5b
+
+	column invoice_id
+		dataType: string
+		lineageTag: 532d775c-01b3-4e3c-919f-b390c5f43e01
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 7bbd5244-6e16-4513-b3ec-8859b00090be
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: cd4299e4-35b1-4af5-9587-7f4f4a1451d3
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_id
+		dataType: string
+		lineageTag: b7e6cddd-8b48-439d-9d10-db2efdeca037
+		summarizeBy: none
+		sourceColumn: contract_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8aee9851-617a-4883-9169-7e3f6e4b2fd5
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		variation Variation
+			isDefault
+			relationship: 4af068d8-03c8-4c51-8926-970b77363b8e
+			defaultHierarchy: LocalDateTable_bd922105-c3eb-4b40-95ab-0826f762e06a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column due_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d65adc19-4c26-466c-820a-f16a3ca10e23
+		summarizeBy: none
+		sourceColumn: due_date
+
+		variation Variation
+			isDefault
+			relationship: 1b0f5414-79ea-4581-98d3-b49f53e301fc
+			defaultHierarchy: LocalDateTable_ff2d85a8-d60c-498e-b53f-d61758c1c33b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column invoice_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 749407fd-e557-4609-95e7-df04341de5fc
+		summarizeBy: sum
+		sourceColumn: invoice_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_amount
+		dataType: double
+		lineageTag: 17e40319-e228-4c11-b7fc-10ffee039487
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 47ec01e7-2fd5-4db5-b5ce-afa33da7a42e
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_payable
+		dataType: double
+		lineageTag: 9a53b419-db45-47f0-afd1-ab306af64962
+		summarizeBy: sum
+		sourceColumn: total_payable
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column invoice_status
+		dataType: string
+		lineageTag: 9b573851-100e-45c4-8842-4f15cd73c63c
+		summarizeBy: none
+		sourceColumn: invoice_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 0cf4b876-1129-4446-98bd-2a0b53b7441c
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_type
+		dataType: string
+		lineageTag: 8ae0084e-2ff0-49c8-bd28-7bb7268c4d0c
+		summarizeBy: none
+		sourceColumn: invoice_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition invoice_master = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    invoice_master_Table = DigiElevate2_Schema{[Name="invoice_master",Kind="Table"]}[Data]
+				in
+				    invoice_master_Table
+

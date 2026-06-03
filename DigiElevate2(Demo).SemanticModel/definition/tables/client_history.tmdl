@@ -1,0 +1,130 @@
+table client_history
+	lineageTag: d797486d-d62f-49e9-9cd2-a1976b647f31
+
+	column historical_id
+		dataType: int64
+		formatString: 0
+		lineageTag: dcab63a0-4dc7-4258-98a7-abd3bc8baf66
+		summarizeBy: none
+		sourceColumn: historical_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 00042833-38a3-4174-ac09-597e3d33098b
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_tier
+		dataType: string
+		lineageTag: 37982092-4a19-43d1-9867-e9345fce0a25
+		summarizeBy: none
+		sourceColumn: previous_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_tier
+		dataType: string
+		lineageTag: 9f98d26e-5443-4d6d-9cff-0bf4a7d0a3a0
+		summarizeBy: none
+		sourceColumn: current_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 59f4ee17-a8bd-4692-bc54-8200846627af
+		summarizeBy: sum
+		sourceColumn: previous_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 126b6875-5284-49a5-a001-adbd3acffb0c
+		summarizeBy: sum
+		sourceColumn: current_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column change_reason
+		dataType: string
+		lineageTag: a11410a9-0d3d-4cb1-886b-1ec88d9426d0
+		summarizeBy: none
+		sourceColumn: change_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column change_type
+		dataType: string
+		lineageTag: 999e83f0-2426-4843-8996-190669753e90
+		summarizeBy: none
+		sourceColumn: change_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column valid_from
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 00e5943b-015d-4a50-a74e-93e04ee06773
+		summarizeBy: none
+		sourceColumn: valid_from
+
+		variation Variation
+			isDefault
+			relationship: 08e1ae5b-27a7-4d7a-86ef-bd0caa4f7130
+			defaultHierarchy: LocalDateTable_9c2d03a8-0f83-49e3-822f-295e6a8e59a2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valid_to
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 986bee29-0a3e-4571-95d5-c6d5332ba4d6
+		summarizeBy: none
+		sourceColumn: valid_to
+
+		variation Variation
+			isDefault
+			relationship: 1cee8d96-dd07-42c0-a8a7-67941bb62b40
+			defaultHierarchy: LocalDateTable_5d98af21-3f95-418f-8b57-143831c747c8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column retention_status
+		dataType: string
+		lineageTag: 09c94c30-6bfb-480c-8cf8-7a3dcea2aad1
+		summarizeBy: none
+		sourceColumn: retention_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_change
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f71f060-39ae-41f1-baa8-a73dd13ea839
+		summarizeBy: sum
+		sourceColumn: revenue_change
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_history = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_history_Table = DigiElevate2_Schema{[Name="client_history",Kind="Table"]}[Data]
+				in
+				    client_history_Table
+

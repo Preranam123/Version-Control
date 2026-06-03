@@ -1,0 +1,272 @@
+table client_revenue
+	lineageTag: 0f30afa3-00ad-4150-833c-e6f57f811d13
+
+	column revenue_id
+		dataType: string
+		lineageTag: ad22bcb1-ff48-4641-9559-10318388e141
+		summarizeBy: none
+		sourceColumn: revenue_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 05fb5307-2e11-45c0-a9ba-9deaaffb3f83
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_name
+		dataType: string
+		lineageTag: b0e64cc7-ed3e-4e16-9835-1d34b962004d
+		summarizeBy: none
+		sourceColumn: client_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: fbf996f7-3a9d-4484-a2a1-32276956fd9d
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: b9d5b4e3-ec68-46db-9462-c61077a0982e
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_id
+		dataType: string
+		lineageTag: c4a06fd7-ae0e-4dfe-8af6-1ec2a0c334e7
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_id
+		dataType: string
+		lineageTag: 0fc65406-1399-49fe-9b0a-4055a07e36c9
+		summarizeBy: none
+		sourceColumn: contract_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_period
+		dataType: string
+		lineageTag: 172d780d-df3f-4577-aa1a-fbbec6b0970d
+		summarizeBy: none
+		sourceColumn: revenue_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_date
+		dataType: int64
+		formatString: 0
+		lineageTag: 91ae4908-a4f4-44a9-88d9-4e47e6cc4e86
+		summarizeBy: sum
+		sourceColumn: revenue_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fbe8013-a7d6-47c2-9236-a6179f84ac74
+		summarizeBy: sum
+		sourceColumn: revenue_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: b33f1f8b-b5d1-48fd-97ac-ef6eb7b6f5ff
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_type
+		dataType: string
+		lineageTag: 4aa79b4e-103b-45c4-8bd7-f074756ebcae
+		summarizeBy: none
+		sourceColumn: revenue_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_stream
+		dataType: string
+		lineageTag: f5c26ece-c7d5-4cb9-8d8f-8504f4fbbcd9
+		summarizeBy: none
+		sourceColumn: revenue_stream
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_recurring_revenue_mrr
+		dataType: double
+		lineageTag: d9fa39d0-fd11-4707-903d-cf3b88e9191e
+		summarizeBy: sum
+		sourceColumn: monthly_recurring_revenue_mrr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annual_recurring_revenue_arr
+		dataType: int64
+		formatString: 0
+		lineageTag: 322b75aa-c6f2-421b-911a-b73b32537b9d
+		summarizeBy: sum
+		sourceColumn: annual_recurring_revenue_arr
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: 12aed59b-1f95-4ab0-a96c-3f6155d91ebe
+		summarizeBy: sum
+		sourceColumn: gross_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_revenue
+		dataType: double
+		lineageTag: 6e2e3463-1381-40a7-bf5e-68bc3618dbc5
+		summarizeBy: sum
+		sourceColumn: net_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_amount
+		dataType: double
+		lineageTag: 84bf4165-c149-4e1c-ae30-6f9dbf93a0d1
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit_margin
+		dataType: double
+		lineageTag: cb7a45b8-0b39-4719-8ff1-2255cee9fa0b
+		summarizeBy: sum
+		sourceColumn: profit_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recognition_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 07d08875-2e00-4edc-9d37-89e92b188477
+		summarizeBy: none
+		sourceColumn: recognition_date
+
+		variation Variation
+			isDefault
+			relationship: b5f26b65-1007-4861-bceb-e4effb4b9e3a
+			defaultHierarchy: LocalDateTable_5ed3fd65-011d-462f-a19e-1da05d6106b1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column payment_status
+		dataType: string
+		lineageTag: 8418b3c0-5c87-4e4c-b617-11e8a87cdaf2
+		summarizeBy: none
+		sourceColumn: payment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column outstanding_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 996762ff-a111-401e-b9c0-e88353166c12
+		summarizeBy: sum
+		sourceColumn: outstanding_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column collection_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 132b87f4-6faa-46a6-8f13-9d7892c6b983
+		summarizeBy: sum
+		sourceColumn: collection_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_growth_percentage
+		dataType: double
+		lineageTag: 246376b6-c4da-48b5-84a9-47436eba5052
+		summarizeBy: sum
+		sourceColumn: revenue_growth_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue_band
+		dataType: string
+		lineageTag: 32a79923-b730-4ccb-bb01-3d2810944745
+		summarizeBy: none
+		sourceColumn: revenue_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: b9e59297-e26c-4766-b723-1668f18da601
+		summarizeBy: sum
+		sourceColumn: forecast_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column upsell_revenue
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b1b4e7-1aef-45b4-85a4-85ea4ac7ff75
+		summarizeBy: sum
+		sourceColumn: upsell_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: e7b5d0b5-4265-41bc-ae04-a7aa7f3c63f7
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_frequency
+		dataType: string
+		lineageTag: 4da60ab5-5159-4c73-bec2-9c80b725a1b8
+		summarizeBy: none
+		sourceColumn: billing_frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_revenue = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_revenue_Table = DigiElevate2_Schema{[Name="client_revenue",Kind="Table"]}[Data]
+				in
+				    client_revenue_Table
+

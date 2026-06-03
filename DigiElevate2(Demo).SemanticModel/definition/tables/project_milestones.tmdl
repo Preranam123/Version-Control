@@ -1,0 +1,95 @@
+table project_milestones
+	lineageTag: 515ad5ae-92f1-4cf3-9fab-687b4b03d919
+
+	column milestone_id
+		dataType: string
+		lineageTag: d56a8615-a0b8-4380-8fe5-e3d4fc1f9dc1
+		summarizeBy: none
+		sourceColumn: milestone_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 2ff1d87b-fb36-491a-b79a-708d0fabc14f
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column phase_id
+		dataType: string
+		lineageTag: 83388573-dd85-4862-a675-62847e8a33a2
+		summarizeBy: none
+		sourceColumn: phase_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column milestone_name
+		dataType: string
+		lineageTag: 11a70db2-ec40-4d6b-a333-536775c64fdc
+		summarizeBy: none
+		sourceColumn: milestone_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: afea7dfb-5710-4a58-8362-d98cbc59abb2
+		summarizeBy: none
+		sourceColumn: due_date
+
+		variation Variation
+			isDefault
+			relationship: 2d6fe7d7-1771-46ce-997b-fe8b76e534bc
+			defaultHierarchy: LocalDateTable_ac188b4c-75c2-4e49-bcb7-03765d6902bd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column achieved_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b00bfba5-4b66-4dd9-b77f-c0c17c69207d
+		summarizeBy: none
+		sourceColumn: achieved_date
+
+		variation Variation
+			isDefault
+			relationship: 5d475325-889e-471b-8d62-a6367ae3c6d5
+			defaultHierarchy: LocalDateTable_99c03d65-bba4-47d2-bc1a-dfd70df0c3d9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column milestone_status
+		dataType: string
+		lineageTag: d29a833a-7f83-4d73-96da-4c08126f9626
+		summarizeBy: none
+		sourceColumn: milestone_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column milestone_completion_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 18d14e5e-6e0a-453b-8d1b-b17dc988ccd3
+		summarizeBy: sum
+		sourceColumn: milestone_completion_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_milestones = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    project_milestones_Table = DigiElevate2_Schema{[Name="project_milestones",Kind="Table"]}[Data]
+				in
+				    project_milestones_Table
+

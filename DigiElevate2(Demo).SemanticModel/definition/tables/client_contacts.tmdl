@@ -1,0 +1,104 @@
+table client_contacts
+	lineageTag: f489ee2a-a583-4508-bded-4773aa5afd1b
+
+	column contact_id
+		dataType: string
+		lineageTag: 034950e3-a165-452f-babd-8f40946d1656
+		summarizeBy: none
+		sourceColumn: contact_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 2d0a08aa-92bd-459d-b8bb-42f84f251a86
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_name
+		dataType: string
+		lineageTag: 9579e34b-003c-43a8-a804-ad0944b22ca4
+		summarizeBy: none
+		sourceColumn: contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column designation
+		dataType: string
+		lineageTag: 598f0c3f-40e3-4d72-820d-774c10fd659b
+		summarizeBy: none
+		sourceColumn: designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: 9072b07a-4db1-4eda-ae93-db749ef47107
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 57442695-e45f-4eeb-a301-76483b8fa725
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: int64
+		formatString: 0
+		lineageTag: d0f6ed4a-d2a9-41f1-b6eb-323c334a1761
+		summarizeBy: sum
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column decision_maker_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4997e37-6e66-4258-9441-140bc616222c
+		summarizeBy: none
+		sourceColumn: decision_maker_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column seniority_level
+		dataType: string
+		lineageTag: 179d04c6-82d4-4d25-839d-0d6daaf4d06b
+		summarizeBy: none
+		sourceColumn: seniority_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column preferred_contact_time
+		dataType: string
+		lineageTag: a97dc74e-ad1b-4fd3-8a90-f957cd9289b3
+		summarizeBy: none
+		sourceColumn: preferred_contact_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column communication_preference
+		dataType: string
+		lineageTag: 16384fc0-fab8-4096-a937-46d2424cbb74
+		summarizeBy: none
+		sourceColumn: communication_preference
+
+		annotation SummarizationSetBy = Automatic
+
+	partition client_contacts = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    client_contacts_Table = DigiElevate2_Schema{[Name="client_contacts",Kind="Table"]}[Data]
+				in
+				    client_contacts_Table
+

@@ -1,0 +1,55 @@
+table employee_skills
+	lineageTag: f0aec83c-3eeb-4bc8-ae87-a2ee2cfb4790
+
+	column emp_id
+		dataType: string
+		lineageTag: ea3e8e60-7493-4e65-b4ff-3673f311064c
+		summarizeBy: none
+		sourceColumn: emp_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column skill_name
+		dataType: string
+		lineageTag: 4355362a-38e0-4673-a892-b7334a25c46b
+		summarizeBy: none
+		sourceColumn: skill_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column skill_category
+		dataType: string
+		lineageTag: 86a5fe5a-0ce0-42cc-9d2d-af81e82cc1fa
+		summarizeBy: none
+		sourceColumn: skill_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column proficiency_level
+		dataType: string
+		lineageTag: cd780124-c4f3-4652-80a4-27ba2a42ac2c
+		summarizeBy: none
+		sourceColumn: proficiency_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column certification_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 20386f88-b831-4350-9f1d-4fa1673496be
+		summarizeBy: none
+		sourceColumn: certification_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_skills = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    employee_skills_Table = DigiElevate2_Schema{[Name="employee_skills",Kind="Table"]}[Data]
+				in
+				    employee_skills_Table
+

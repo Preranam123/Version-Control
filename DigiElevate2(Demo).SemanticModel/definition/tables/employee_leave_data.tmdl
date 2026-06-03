@@ -1,0 +1,87 @@
+table employee_leave_data
+	lineageTag: 593a7629-7513-4972-95ee-04899e6741a0
+
+	column leave_id
+		dataType: string
+		lineageTag: ec8d2ca3-3ca3-4d25-aef7-04e502e78e4b
+		summarizeBy: none
+		sourceColumn: leave_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column emp_id
+		dataType: string
+		lineageTag: f6b4d85c-57c3-421c-adf6-e9563b1b15d6
+		summarizeBy: none
+		sourceColumn: emp_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column leave_type
+		dataType: string
+		lineageTag: d18d6293-9c2c-4a29-8785-317126a41019
+		summarizeBy: none
+		sourceColumn: leave_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: efc27084-c40a-4aa5-a13b-ef5783f1802e
+		summarizeBy: none
+		sourceColumn: start_date
+
+		variation Variation
+			isDefault
+			relationship: 2674459a-8944-4c66-a4ed-144a9bd72b45
+			defaultHierarchy: LocalDateTable_bd7bac48-5fd1-4c95-a909-4c466e707217.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aedb6ee0-dbf5-4908-8129-bea208d40d79
+		summarizeBy: none
+		sourceColumn: end_date
+
+		variation Variation
+			isDefault
+			relationship: d555bc28-3c1e-433e-a4d0-3aca6bcc128e
+			defaultHierarchy: LocalDateTable_dd139002-94e6-47aa-8593-ab75162dfa18.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column days_taken
+		dataType: int64
+		formatString: 0
+		lineageTag: 30d45de4-4004-4d32-b5aa-72e278ffe09c
+		summarizeBy: sum
+		sourceColumn: days_taken
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 154817af-bbc0-46bf-87fd-0a93f7d823be
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_leave_data = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"bi-team-poc-490804_Database" = Source{[Name="bi-team-poc-490804",Kind="Database"]}[Data],
+				    DigiElevate2_Schema = #"bi-team-poc-490804_Database"{[Name="DigiElevate2",Kind="Schema"]}[Data],
+				    employee_leave_data_Table = DigiElevate2_Schema{[Name="employee_leave_data",Kind="Table"]}[Data]
+				in
+				    employee_leave_data_Table
+
