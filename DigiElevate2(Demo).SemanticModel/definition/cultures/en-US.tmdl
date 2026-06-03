@@ -70142,7 +70142,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures (2)",
-			          "ConceptualProperty": "Achieved Milestones"
+			          "ConceptualProperty": "Profit Achieved Milestones"
 			        }
 			      },
 			      "State": "Generated",

@@ -653,7 +653,7 @@ table 'Measures (2)'
 		formatString: 0
 		lineageTag: 278fb103-d193-42de-9521-9906c8f3c361
 
-	measure 'Achieved Milestones' = ```
+	measure 'Profit Achieved Milestones' = ```
 			
 			CALCULATE(
 			COUNT(project_milestones[milestone_id]),
@@ -678,7 +678,7 @@ table 'Measures (2)'
 	measure 'Milestone Achievement Rate' = ```
 			
 			DIVIDE(
-			    [Achieved Milestones],
+			    [Profit Achieved Milestones],
 			    [Total Milestones],
 			    0
 			) *100
